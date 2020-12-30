@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <head>  
+  <!-- Title -->
+  
+  <meta charset="utf-8">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, viewport-fit=cover" >
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="author" content="sui" />
+  <meta name="designer" content="sui" />
+  <meta name="keywords" content="linux指令-grep,sui," />
+  <meta property="og:title" content="linux指令-grep | sui" />
+  <meta property="og:site_name" content="http://example.com" />
+  
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://example.com/2020/12/30/linux指令-grep/" />
+    <meta property="og:image" content="http://example.comimages/default_cover.jpg" />
+    <meta property="og:description" content="linux指令-grep--" />
+    <meta name="description" content="linux指令-grep--" />
+  
+  <meta name="rating" content="general" /> 
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="/images/profile.jpg">
+  <title>linux指令-grep | sui</title>
+  
+<link rel="stylesheet" href="/css/f25.css">
+
+  
+<link rel="stylesheet" href="/css/highlight.css">
+
+  
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+</head>
+<body>
+    <header class="wrapper header-wrapper">
+    <div class="container header-nav-wrapper">
+        <div class="logo"><a href="/" title="sui"><h1 class="title">Jin</h1></a></div>
+        <nav class="nav-wrapper">
+            
+        </nav>
+        <span class="btn-menu" id="J_header_menu">
+            <div class="inner">
+                <span class="line line-01"></span>
+                <span class="line line-02"></span>
+                <span class="line line-03"></span>
+            </div>
+        </span>
+        <div class="wrapper mb-nav-wrapper" id="J_header_menu_list">
+            <nav class="wrapper mb-nav-container">
+                
+            </nav>
+        </div>
+    </div>
+</header>
+    <section class="body-wrapper">
+        <section class="wrapper post-banner">
+    <div class="container post-banner-container">
+        <h2 class="wrapper title">linux指令-grep</h2>
+        <div class="wrapper tips">
+            <span>Author：</span><span>sui</span> | <span>Date: </span><span>2020-12-30</span> | <span>Category：</span><span><a href="/categories/Linux/" title="Linux">Linux</a></span>
+        </div>
+    </div>
+</section>
+<section class="wrapper main-wrapper">
+    <article class="sub-container post-content">
+        <h1 id="grep命令"><a href="#grep命令" class="headerlink" title="grep命令"></a>grep命令</h1><p>grep命令，全称（Global Regular Expression Print，表示全局正则表达式版本），用来做文本匹配十分厉害，堪称神器。</p>
+<p><strong>命令格式</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep [option] pattern file</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<p>这里有一个测试文件，内容为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">aaaaaaaaaaaaaaaa</span><br><span class="line">bbbbbbbbbbbbb</span><br><span class="line">ccccccccccccccc</span><br><span class="line">dddddddddddddd</span><br><span class="line">eeeeeeeeeeeeeeeee</span><br><span class="line">ffffffffffffffffff</span><br><span class="line">gggggggggggggggggg</span><br><span class="line">hhhhhhhhhhhhhhhhhh</span><br><span class="line">iiiiiiiiiiiiiiiiiii</span><br><span class="line">jjjjjjjjjjjjjjjjjjjjjjj</span><br><span class="line">kkkkkkkkkkkkkkk</span><br><span class="line">lllllllllllll</span><br><span class="line">mmmmmmmmmmmm</span><br><span class="line">n</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+<th>演示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>对二进制数据也匹配</td>
+<td>无</td>
+</tr>
+<tr>
+<td>-A &lt;count&gt;</td>
+<td>除了显示匹配到的内容，还显示他之后的几行内容</td>
+<td><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20201228160330.png"></td>
+</tr>
+<tr>
+<td>-b</td>
+<td>显示出之前匹配到了多少</td>
+<td><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20201228160716.png"></td>
+</tr>
+<tr>
+<td>-B &lt;count&gt;</td>
+<td>除了显示匹配到的内容，还显示他之前的几行内容</td>
+<td>无</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>计算符合样式的行数</td>
+<td><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20201228160924.png"></td>
+</tr>
+<tr>
+<td>-C &lt;count&gt;</td>
+<td>把-B和-A整合了</td>
+<td><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20201228161104.png"></td>
+</tr>
+<tr>
+<td>-f file</td>
+<td>从文件中读取要匹配的文本</td>
+<td><img src="C:\Users\sui\AppData\Roaming\Typora\typora-user-images\image-20201228161951704.png" alt="image-20201228161951704"></td>
+</tr>
+<tr>
+<td>-n</td>
+<td>显示匹配到的文本行号</td>
+<td><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20201228162136.png"></td>
+</tr>
+<tr>
+<td>无</td>
+<td>从多个文件中查找</td>
+<td><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20201228162308.png"></td>
+</tr>
+<tr>
+<td>-i</td>
+<td>忽略大小写</td>
+<td><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20201228162431.png"></td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示不包含匹配项的行</td>
+<td><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20201228163809.png"></td>
+</tr>
+<tr>
+<td>-E</td>
+<td>联合使用</td>
+<td><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20201228164039.png"></td>
+</tr>
+<tr>
+<td>-l</td>
+<td>只显示匹配到的文件名，不显示匹配到的内容</td>
+<td></td>
+</tr>
+<tr>
+<td>-s</td>
+<td>不显示关于不存在或者无法读取文件的错误信息</td>
+<td></td>
+</tr>
+<tr>
+<td>-q</td>
+<td>禁止输出任何匹配结果，而是以退出码的形式表示搜索是否成功，其中0表示找到了匹配的文本行（与echo $? 连用）</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>表达式规则</strong></p>
+<table>
+<thead>
+<tr>
+<th>规则</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>^</td>
+<td>指定开头</td>
+</tr>
+<tr>
+<td>$</td>
+<td>指定结尾</td>
+</tr>
+<tr>
+<td>.</td>
+<td>任意一个非换行字符</td>
+</tr>
+<tr>
+<td>*</td>
+<td>一个或多个前一个出现的字符</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>匹配一个指定范围内的字符，如’[Gg]rep’匹配Grep和grep</td>
+</tr>
+<tr>
+<td>[^]</td>
+<td>匹配一个不在指定范围内的字符，如：’[^A-FH-Z]rep’匹配不包含A-R和T-Z的一个字母开头，紧跟rep的行。</td>
+</tr>
+<tr>
+<td>\(..\)</td>
+<td>标记匹配字符，如’(love)‘，love被标记为1</td>
+</tr>
+<tr>
+<td>\&lt;</td>
+<td>锚定单词的开始，如:’&lt;grep’匹配包含以grep开头的单词的行,类似于^</td>
+</tr>
+<tr>
+<td>\&gt;</td>
+<td>锚定单词的结束，如’grep&gt;‘匹配包含以grep结尾的单词的行,类似于$</td>
+</tr>
+<tr>
+<td>x\{m\}</td>
+<td>重复字符x，m次，如：’0{5}‘匹配包含5个o的行。</td>
+</tr>
+<tr>
+<td>x\{m,\}</td>
+<td>重复字符x,至少m次，如：’o{5,}‘匹配至少有5个o的行。</td>
+</tr>
+<tr>
+<td>x\{m,n\}</td>
+<td>重复字符x，至少m次，不多于n次，如：’o{5,10}‘匹配5–10个o的行。</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配字母和数字字符，也就是[A-Za-z0-9]，如：’G\w*p’匹配以G后跟零个或多个文字或数字字符，然后是p。</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>\w的反置形式，匹配一个或多个非单词字符，如点号句号等。</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>单词锁定符，如: ‘\bgrep\b’只匹配grep。</td>
+</tr>
+<tr>
+<td>[[:alnum:]]</td>
+<td>文字数字字符</td>
+</tr>
+<tr>
+<td>[[:alpha:]]</td>
+<td>文字字符</td>
+</tr>
+<tr>
+<td>[[:digit:]]</td>
+<td>数字字符</td>
+</tr>
+<tr>
+<td>[[:graph:]]</td>
+<td>非空字符（非空格、控制字符）</td>
+</tr>
+<tr>
+<td>[[:lower:]]</td>
+<td>小写字符</td>
+</tr>
+<tr>
+<td>[[:cntrl:]]</td>
+<td>控制字符</td>
+</tr>
+<tr>
+<td>[[:print:]]</td>
+<td>非空字符（包括空格）</td>
+</tr>
+<tr>
+<td>[[:punct:]]</td>
+<td>标点符号</td>
+</tr>
+<tr>
+<td>[[:space:]]</td>
+<td>所有空白字符（新行，空格，制表符）</td>
+</tr>
+<tr>
+<td>[[:upper:]]</td>
+<td>大写字符</td>
+</tr>
+<tr>
+<td>[[:xdigit:]]</td>
+<td>十六进制数字（0-9，a-f，A-F）</td>
+</tr>
+</tbody></table>
+<h2 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/peida/archive/2012/12/17/2821195.html">https://www.cnblogs.com/peida/archive/2012/12/17/2821195.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/652b4975b242">https://www.jianshu.com/p/652b4975b242</a></li>
+</ul>
+
+    </article>
+    <div class="sub-container gitalk-wrapper" id="gitalk-container"></div>
+</section>
+        
+<div class="tips-top-wrapper">
+    <span class="tip-top-container" onclick="scrollToWindowTop()">
+        <span class="l-bar"></span>
+        <span class="r-bar"></span>
+    </span>
+</div>
+<footer class="wrapper footer-wrapper">
+    <div class="container"><span class="copyright">&copy; 2020 . All Rights Reserved.</span></div>
+</footer>
+    </section>
+    
+<script src="/js/f25.js"></script>
+
+    
+</body>
+</html>
