@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <head>  
+  <!-- Title -->
+  
+  <meta charset="utf-8">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, viewport-fit=cover" >
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="author" content="sui" />
+  <meta name="designer" content="sui" />
+  <meta name="keywords" content="OpenGrok的搜索技巧,sui," />
+  <meta property="og:title" content="OpenGrok的搜索技巧 | sui" />
+  <meta property="og:site_name" content="http://example.com" />
+  
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://example.com/2021/01/07/OpenGrok的搜索技巧/" />
+    <meta property="og:image" content="http://example.comimages/default_cover.jpg" />
+    <meta property="og:description" content="OpenGrok的搜索技巧--" />
+    <meta name="description" content="OpenGrok的搜索技巧--" />
+  
+  <meta name="rating" content="general" /> 
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="./images/profile.ico">
+  <title>OpenGrok的搜索技巧 | sui</title>
+  
+<link rel="stylesheet" href="/css/f25.css">
+
+  
+<link rel="stylesheet" href="/css/highlight.css">
+
+  
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+</head>
+<body>
+    <header class="wrapper header-wrapper">
+    <div class="container header-nav-wrapper">
+        <div class="logo"><a href="/" title="sui"><h1 class="title">Jin</h1></a></div>
+        <nav class="nav-wrapper">
+            
+        </nav>
+        <span class="btn-menu" id="J_header_menu">
+            <div class="inner">
+                <span class="line line-01"></span>
+                <span class="line line-02"></span>
+                <span class="line line-03"></span>
+            </div>
+        </span>
+        <div class="wrapper mb-nav-wrapper" id="J_header_menu_list">
+            <nav class="wrapper mb-nav-container">
+                
+            </nav>
+        </div>
+    </div>
+</header>
+    <section class="body-wrapper">
+        <section class="wrapper post-banner">
+    <div class="container post-banner-container">
+        <h2 class="wrapper title">OpenGrok的搜索技巧</h2>
+        <div class="wrapper tips">
+            <span>Author：</span><span>sui</span> | <span>Date: </span><span>2021-01-07</span> | <span>Category：</span><span><a href="/categories/tool/" title="tool">tool</a></span>
+        </div>
+    </div>
+</section>
+<section class="wrapper main-wrapper">
+    <article class="sub-container post-content">
+        <h1 id="OpenGrok的搜索技巧"><a href="#OpenGrok的搜索技巧" class="headerlink" title="OpenGrok的搜索技巧"></a>OpenGrok的搜索技巧</h1><p>在OpenGrok中，有以下几种搜索栏目</p>
+<p><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210106114452.png"></p>
+<p><strong>Full Path</strong> 为全搜索，在里面输入的字符会进行全部匹配，把文件里包含此字符的文件都列出来（包含注释等）</p>
+<p><strong>Definition</strong> 为定义搜索（主要用来搜索一些函数定义等），把包含输入的定义输出出来，例如在Definition中输入allLowerCaseAscii，结果如下</p>
+<p><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210106114854.png"></p>
+<p><strong>Symbol</strong>为符号搜索，主要用来搜索一下成员变量等</p>
+<p><strong>File Path</strong>为路径搜索，用来搜索包含指定为字符串的路径</p>
+<h2 id="基本搜索"><a href="#基本搜索" class="headerlink" title="基本搜索"></a>基本搜索</h2><p>以上输入框中，都存在一些搜索技巧</p>
+<p>+ 表示包含指定字符串内容</p>
+<p>- 表示不包含指定字符串的内容</p>
+<p>AND(&amp;&amp;) 为与的关系</p>
+<p>OR(|| 或者 空格)为或的关系</p>
+<p>NOT(! 或者 -)为非的关系</p>
+<p>？代表一个字符</p>
+<p>* 表示代表多个字符</p>
+<blockquote>
+<p>注意：AND OR NOT 必须为大写才生效。？ * 不可以作为开头字符</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210106120415.png"></p>
+<ul>
+<li>Home 代表返回主搜索界面</li>
+<li>History 目前细节未知，但猜测为与历史版本的对比</li>
+<li>Annotate 目前功能未知</li>
+<li>Line# 点击来显示或隐藏前面的行号</li>
+<li>Navigate 展示所有的函数定义导航</li>
+<li>Download 下载此页代码</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/yush34/article/details/102671246">https://blog.csdn.net/yush34/article/details/102671246</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4b69051d4a60">https://www.jianshu.com/p/4b69051d4a60</a></li>
+</ul>
+
+    </article>
+    <div class="sub-container gitalk-wrapper" id="gitalk-container"></div>
+</section>
+        
+<div class="tips-top-wrapper">
+    <span class="tip-top-container" onclick="scrollToWindowTop()">
+        <span class="l-bar"></span>
+        <span class="r-bar"></span>
+    </span>
+</div>
+<footer class="wrapper footer-wrapper">
+    <div class="container"><span class="copyright">&copy; 2021 . All Rights Reserved.</span></div>
+</footer>
+    </section>
+    
+<script src="/js/f25.js"></script>
+
+    
+</body>
+</html>

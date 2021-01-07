@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <head>  
+  <!-- Title -->
+  
+  <meta charset="utf-8">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, viewport-fit=cover" >
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="author" content="sui" />
+  <meta name="designer" content="sui" />
+  <meta name="keywords" content="修改Gitlab密码,sui," />
+  <meta property="og:title" content="修改Gitlab密码 | sui" />
+  <meta property="og:site_name" content="http://example.com" />
+  
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://example.com/2021/01/07/修改Gitlab密码/" />
+    <meta property="og:image" content="http://example.comimages/default_cover.jpg" />
+    <meta property="og:description" content="修改Gitlab密码--" />
+    <meta name="description" content="修改Gitlab密码--" />
+  
+  <meta name="rating" content="general" /> 
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="./images/profile.ico">
+  <title>修改Gitlab密码 | sui</title>
+  
+<link rel="stylesheet" href="/css/f25.css">
+
+  
+<link rel="stylesheet" href="/css/highlight.css">
+
+  
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+</head>
+<body>
+    <header class="wrapper header-wrapper">
+    <div class="container header-nav-wrapper">
+        <div class="logo"><a href="/" title="sui"><h1 class="title">Jin</h1></a></div>
+        <nav class="nav-wrapper">
+            
+        </nav>
+        <span class="btn-menu" id="J_header_menu">
+            <div class="inner">
+                <span class="line line-01"></span>
+                <span class="line line-02"></span>
+                <span class="line line-03"></span>
+            </div>
+        </span>
+        <div class="wrapper mb-nav-wrapper" id="J_header_menu_list">
+            <nav class="wrapper mb-nav-container">
+                
+            </nav>
+        </div>
+    </div>
+</header>
+    <section class="body-wrapper">
+        <section class="wrapper post-banner">
+    <div class="container post-banner-container">
+        <h2 class="wrapper title">修改Gitlab密码</h2>
+        <div class="wrapper tips">
+            <span>Author：</span><span>sui</span> | <span>Date: </span><span>2021-01-07</span> | <span>Category：</span><span><a href="/categories/GitLab/" title="GitLab">GitLab</a></span>
+        </div>
+    </div>
+</section>
+<section class="wrapper main-wrapper">
+    <article class="sub-container post-content">
+        <h2 id="Gitlab-密码修改"><a href="#Gitlab-密码修改" class="headerlink" title="Gitlab 密码修改"></a>Gitlab 密码修改</h2><p>使用root用户</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rails console production</span><br></pre></td></tr></table></figure>
+<p>但是在我的CentOS上是报错的，如下错误（如果执行上述命令不出现错误，就不需要理会下面的错误）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">	8: from bin/rails:4:<span class="keyword">in</span> `&lt;main&gt;<span class="string">&#x27;</span></span><br><span class="line"><span class="string">	7: from bin/rails:4:in `require&#x27;</span></span><br><span class="line">	6: from /opt/gitlab/embedded/lib/ruby/gems/2.7.0/gems/railties-6.0.3.3/lib/rails/commands.rb:18:<span class="keyword">in</span> `&lt;top (required)&gt;<span class="string">&#x27;</span></span><br><span class="line"><span class="string">	5: from /opt/gitlab/embedded/lib/ruby/gems/2.7.0/gems/railties-6.0.3.3/lib/rails/command.rb:46:in `invoke&#x27;</span></span><br><span class="line">	4: from /opt/gitlab/embedded/lib/ruby/gems/2.7.0/gems/railties-6.0.3.3/lib/rails/<span class="built_in">command</span>/base.rb:69:<span class="keyword">in</span> `perform<span class="string">&#x27;</span></span><br><span class="line"><span class="string">	3: from /opt/gitlab/embedded/lib/ruby/gems/2.7.0/gems/thor-0.20.3/lib/thor.rb:387:in `dispatch&#x27;</span></span><br><span class="line">	2: from /opt/gitlab/embedded/lib/ruby/gems/2.7.0/gems/thor-0.20.3/lib/thor/invocation.rb:126:<span class="keyword">in</span> `invoke_command<span class="string">&#x27;</span></span><br><span class="line"><span class="string">	1: from /opt/gitlab/embedded/lib/ruby/gems/2.7.0/gems/thor-0.20.3/lib/thor/command.rb:27:in `run&#x27;</span></span><br><span class="line">/opt/gitlab/embedded/lib/ruby/gems/2.7.0/gems/railties-6.0.3.3/lib/rails/commands/console/console_command.rb:95:<span class="keyword">in</span> `perform<span class="string">&#x27;: wrong number of arguments (given 1, expected 0) (ArgumentError)</span></span><br><span class="line"><span class="string">	9: from bin/rails:4:in `&lt;main&gt;&#x27;</span></span><br><span class="line">	8: from bin/rails:4:<span class="keyword">in</span> `require<span class="string">&#x27;</span></span><br><span class="line"><span class="string">	7: from /opt/gitlab/embedded/lib/ruby/gems/2.7.0/gems/railties-6.0.3.3/lib/rails/commands.rb:18:in `&lt;top (required)&gt;&#x27;</span></span><br><span class="line">	6: from /opt/gitlab/embedded/lib/ruby/gems/2.7.0/gems/railties-6.0.3.3/lib/rails/command.rb:46:<span class="keyword">in</span> `invoke<span class="string">&#x27;</span></span><br><span class="line"><span class="string">	5: from /opt/gitlab/embedded/lib/ruby/gems/2.7.0/gems/railties-6.0.3.3/lib/rails/command/base.rb:69:in `perform&#x27;</span></span><br><span class="line">	4: from /opt/gitlab/embedded/lib/ruby/gems/2.7.0/gems/thor-0.20.3/lib/thor.rb:387:<span class="keyword">in</span> `dispatch<span class="string">&#x27;</span></span><br><span class="line"><span class="string">	3: from /opt/gitlab/embedded/lib/ruby/gems/2.7.0/gems/thor-0.20.3/lib/thor/invocation.rb:126:in `invoke_command&#x27;</span></span><br><span class="line">	2: from /opt/gitlab/embedded/lib/ruby/gems/2.7.0/gems/thor-0.20.3/lib/thor/command.rb:20:<span class="keyword">in</span> `run<span class="string">&#x27;</span></span><br><span class="line"><span class="string">	1: from /opt/gitlab/embedded/lib/ruby/gems/2.7.0/gems/thor-0.20.3/lib/thor/command.rb:34:in `rescue in run&#x27;</span></span><br><span class="line">/opt/gitlab/embedded/lib/ruby/gems/2.7.0/gems/thor-0.20.3/lib/thor/base.rb:506:<span class="keyword">in</span> `handle_argument_error<span class="string">&#x27;: ERROR: &quot;rails console&quot; was called with arguments [&quot;production&quot;] (Thor::InvocationError)</span></span><br><span class="line"><span class="string">Usage: &quot;rails console [options]&quot;</span></span><br><span class="line"><span class="string">You have new mail in /var/spool/mail/root</span></span><br></pre></td></tr></table></figure>
+<p>解决此错误</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/opt/gitlab/</span><br><span class="line"><span class="comment"># 然后执行</span></span><br><span class="line">gitlab-rails console</span><br></pre></td></tr></table></figure>
+<p>此时会返回console，通过此处就可以修改密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"> Ruby:         ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-linux]</span><br><span class="line"> GitLab:       13.7.1 (c97c8073a0e) FOSS</span><br><span class="line"> GitLab Shell: 13.14.0</span><br><span class="line"> PostgreSQL:   12.4</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">Loading production environment (Rails 6.0.3.3)</span><br><span class="line">irb(main):001:0&gt; </span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入，可以通过username和email去寻找用户</span></span><br><span class="line">user=User.where(username: <span class="string">&quot;root&quot;</span>).first</span><br><span class="line"></span><br><span class="line"><span class="comment"># 找到后返回，若找不到，则返回 =&gt; nil</span></span><br><span class="line">=&gt; <span class="comment">#&lt;User id:1 @root&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改密码，如果不是纯数字，就需要使用双引号引起来</span></span><br><span class="line">user.password=123456</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存</span></span><br><span class="line">user.save!</span><br><span class="line"></span><br><span class="line"><span class="comment"># 退出</span></span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+    </article>
+    <div class="sub-container gitalk-wrapper" id="gitalk-container"></div>
+</section>
+        
+<div class="tips-top-wrapper">
+    <span class="tip-top-container" onclick="scrollToWindowTop()">
+        <span class="l-bar"></span>
+        <span class="r-bar"></span>
+    </span>
+</div>
+<footer class="wrapper footer-wrapper">
+    <div class="container"><span class="copyright">&copy; 2021 . All Rights Reserved.</span></div>
+</footer>
+    </section>
+    
+<script src="/js/f25.js"></script>
+
+    
+</body>
+</html>
