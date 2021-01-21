@@ -354,6 +354,39 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2021/01/21/Android%E4%B8%AD%E7%9A%84LowMemoryKiller%E6%9C%BA%E5%88%B6/" >
+            
+                <span>Android中的LowMemoryKiller机制</span>
+        </a>
+        <div class="abstract-content">
+            Android中的LowMemoryKiller机制
+本文所有源码来自于原生Android 11源代码。在线查看网站https://android-opengrok.bangnimang.net/android-11.0.0_r8/
+
+进程的启动分为冷启动和热启动，当用户退出进程后，Android系统不会立即将此进程回收，而是将其放到后台运行，下次再启动这个程序的时候，直接将这个放在后台的进程拉起来使用，加快启动速度，这种启动方式称为热启动。而冷启动则是重新为这个程序分配进程。
+那么问题来了，当启动的程序较多，然后又退出了，后台就会留下很多这种空的进程，占据了大量的内存空间。Androi...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/21</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2021/01/18/Git%E5%85%A5%E9%97%A8-Git%E4%BB%8B%E7%BB%8D/" >
             
                 <span>Git入门-Git介绍</span>
@@ -806,9 +839,22 @@ AND(&amp;&amp;...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 11
+        Total : 12
         </div>
         <!-- search  -->
         
@@ -821,6 +867,11 @@ AND(&amp;&amp;...
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2021/01/21/Android%E4%B8%AD%E7%9A%84LowMemoryKiller%E6%9C%BA%E5%88%B6/" >Android中的LowMemoryKiller机制</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -899,6 +950,8 @@ AND(&amp;&amp;...
     
         <span class="sidebar-tag-name" data-tags="GitLab"><span class="iconfont-archer">&#xe606;</span>GitLab</span>
     
+        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
+    
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -941,6 +994,8 @@ jsonContent:
         <span class="sidebar-category-name" data-categories="GitLab"><span class="iconfont-archer">&#xe60a;</span>GitLab</span>
     
         <span class="sidebar-category-name" data-categories="git"><span class="iconfont-archer">&#xe60a;</span>git</span>
+    
+        <span class="sidebar-category-name" data-categories="Android"><span class="iconfont-archer">&#xe60a;</span>Android</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
