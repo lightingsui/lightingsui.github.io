@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="sui">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="sui">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="Android进程保活目前的app都想自己一直被运行，不想被杀死，从而来获取用户的信息，了解用户的互联网习性。 国内在这一点就做的很到位，每个app几乎都做了保活处理，尤其是类似qq、微信IM类的软件，他们要保证及时的提醒用户有新消息到来，所以不能被杀死。目前国内的手机也针对这样进程保活做了一些反应对处理，他们加入了禁止自启动的机制等，来控制app的权限。同时也设有白名单，白名单中的app会被放松">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android进程保活">
+<meta property="og:url" content="http://example.com/2021/01/28/Android%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB/index.html">
+<meta property="og:site_name" content="sui">
+<meta property="og:description" content="Android进程保活目前的app都想自己一直被运行，不想被杀死，从而来获取用户的信息，了解用户的互联网习性。 国内在这一点就做的很到位，每个app几乎都做了保活处理，尤其是类似qq、微信IM类的软件，他们要保证及时的提醒用户有新消息到来，所以不能被杀死。目前国内的手机也针对这样进程保活做了一些反应对处理，他们加入了禁止自启动的机制等，来控制app的权限。同时也设有白名单，白名单中的app会被放松">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-28T06:48:39.000Z">
+<meta property="article:modified_time" content="2021-01-28T06:49:06.519Z">
+<meta property="article:author" content="sui">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    
+    <title>Android进程保活 · Sui</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/profile.jpg" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Sui</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Android进程保活</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Sui</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Android进程保活
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">3.2k</span>阅读时长: <span class="post-count reading-time">15 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2021/01/28</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="Android进程保活"><a href="#Android进程保活" class="headerlink" title="Android进程保活"></a>Android进程保活</h1><p>目前的app都想自己一直被运行，不想被杀死，从而来获取用户的信息，了解用户的互联网习性。</p>
+<p>国内在这一点就做的很到位，每个app几乎都做了保活处理，尤其是类似qq、微信IM类的软件，他们要保证及时的提醒用户有新消息到来，所以不能被杀死。目前国内的手机也针对这样进程保活做了一些反应对处理，他们加入了禁止自启动的机制等，来控制app的权限。同时也设有白名单，白名单中的app会被放松权限，做到自启动。所以要想做到app完全的保活，就需要和国内的手机厂商进行交涉，将我们的app放入白名单中，但是这可不是那么容易的，和大厂谈判是需要资本的，一些小的app厂商是没有资格谈判的。</p>
+<p>下面列出了我所知道的进程保活的方法，如果大家有其他的方法，可以指教我一下</p>
+<h2 id="通过广播保活"><a href="#通过广播保活" class="headerlink" title="通过广播保活"></a>通过广播保活</h2><p>当进行拍照、录像、开机等一些列的动作会产生广播，app就是通过接收到这些广播唤醒进程。</p>
+<p>假如我们在拍照的时候，点击拍照按钮，这时一个app监听着拍照的广播，结果收到了广播后，例如唤醒了Service的进程，在后台开始进行下载动作，这时多么流氓的行为</p>
+<p>从Android N开始，google可能已经意识到了这种问题的存在，所以取消了ACTION_NEW_PICTURE（拍照），ACTION_NEW_VIDEO（拍视频），CONNECTIVITY_ACTION（网络切换）广播。</p>
+<h2 id="同系拉起"><a href="#同系拉起" class="headerlink" title="同系拉起"></a>同系拉起</h2><p>同一个公司的app会相互拉起，例如阿里系的app，打开淘宝的时候会唤醒支付宝的服务进程，另外，使用其他公司的SDK也可能会唤醒其公司的产品，例如使用微信的SDK，可能会唤醒微信进程</p>
+<blockquote>
+<p>上面所说的阿里系app会相互唤醒完全是一个例子，并不是真实的，包括举例的微信SDK会唤醒微信也是假的</p>
+</blockquote>
+<h2 id="1像素Activity"><a href="#1像素Activity" class="headerlink" title="1像素Activity"></a>1像素Activity</h2><p>1像素Activity的保活思想是利用的<a target="_blank" rel="noopener" href="https://lightingsui.github.io/2021/01/21/Android%E4%B8%AD%E7%9A%84LowMemoryKiller%E6%9C%BA%E5%88%B6/">LowMemoryKiller</a>机制，基本思路是在手机锁屏后，app打开一个1像素透明的activity，将进程提升为可见进程，降低adj的值，避免被杀。当解锁的时候，将这个1像素的activity再关掉。这样用户完全感知不到，并且还提高了进程的优先级</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个接收手机开屏锁屏的广播</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScreenBroadCastReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> String TAG = ScreenBroadCastReceiver.class.getSimpleName();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        String action = intent.getAction();</span><br><span class="line">        <span class="comment">// 获取到自定义的工具类</span></span><br><span class="line">        OneActivityManager instance = OneActivityManager.getInstance();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (Intent.ACTION_SCREEN_OFF.equals(action)) &#123;</span><br><span class="line">            Log.e(TAG, <span class="string">&quot;receive screen_off broadcast&quot;</span>);</span><br><span class="line">            <span class="comment">// 当接收到锁屏广播时打开1像素的Activity</span></span><br><span class="line">            instance.startOnPixelActivity(context);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Intent.ACTION_SCREEN_ON.equals(action)) &#123;</span><br><span class="line">            Log.e(TAG, <span class="string">&quot;receive screen_on broadcast&quot;</span>);</span><br><span class="line">            <span class="comment">// 当接收到开屏广播时关闭1像素的Activity</span></span><br><span class="line">            instance.closeOnePixelActivity();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主要就是定义接收开屏以及锁屏时候的广播事件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 工具类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OneActivityManager</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">OneActivityManager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> AppCompatActivity onePixelActivity;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> BroadcastReceiver broadcastReceiver = <span class="keyword">new</span> ScreenBroadCastReceiver();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> OneActivityManager oneActivityManager = <span class="keyword">new</span> OneActivityManager();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> OneActivityManager <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (oneActivityManager == <span class="keyword">null</span>) &#123;</span><br><span class="line">            oneActivityManager = <span class="keyword">new</span> OneActivityManager();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> oneActivityManager;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnePixelActivity</span><span class="params">(AppCompatActivity activity)</span> </span>&#123;</span><br><span class="line">        onePixelActivity = activity;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打开1像素的Activity方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startOnPixelActivity</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent(context, OnePixelActivity.class);</span><br><span class="line">        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">        context.startActivity(intent);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">	<span class="comment">// 关闭1像素Activity的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">closeOnePixelActivity</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (onePixelActivity != <span class="keyword">null</span>) &#123;</span><br><span class="line">            onePixelActivity.finish();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 注册广播</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerBroadCastReceiver</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        IntentFilter intentFilter = <span class="keyword">new</span> IntentFilter();</span><br><span class="line">        intentFilter.addAction(Intent.ACTION_SCREEN_ON);</span><br><span class="line">        intentFilter.addAction(Intent.ACTION_SCREEN_OFF);</span><br><span class="line"></span><br><span class="line">        context.registerReceiver(broadcastReceiver, intentFilter);</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">// 解绑广播</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unregisterBoardCastReceiver</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(broadcastReceiver != <span class="keyword">null</span>) &#123;</span><br><span class="line">            context.unregisterReceiver(broadcastReceiver);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主activity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> String TAG = MainActivity.class.getSimpleName();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">		</span><br><span class="line">        <span class="comment">// 注册广播</span></span><br><span class="line">        OneActivityManager.getInstance().registerBroadCastReceiver(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 在MainActivy销毁时解绑广播，防止Memory Leak</span></span><br><span class="line">        OneActivityManager.getInstance().unregisterBoardCastReceiver(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义的1像素的Activity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OnePixelActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> String TAG = OnePixelActivity.class.getSimpleName();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(<span class="meta">@Nullable</span> Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_one_pixel);</span><br><span class="line"></span><br><span class="line">        Window window = getWindow();</span><br><span class="line">        <span class="comment">// 放在左上角</span></span><br><span class="line">        window.setGravity(Gravity.TOP|Gravity.START);</span><br><span class="line">        WindowManager.LayoutParams attributes = window.getAttributes();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 宽高为1px</span></span><br><span class="line">        attributes.width = <span class="number">1</span>;</span><br><span class="line">        attributes.height = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 起始坐标</span></span><br><span class="line">        attributes.x = <span class="number">200</span>;</span><br><span class="line">        attributes.y = <span class="number">0</span>;</span><br><span class="line">        window.setAttributes(attributes);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Log.e(TAG, <span class="string">&quot;create OnePixelActivity&quot;</span>);</span><br><span class="line">        OneActivityManager.getInstance().setOnePixelActivity(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">&quot;close OnePixelActivity&quot;</span>);</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我用的是小米手机进行测试，测试的时候需要注意，在应用的权限里，必须打开自启动权限以及后台弹出界面权限以及锁屏显示权限，否则自己无法自动启动自己的Activity</p>
+<p>测试一下，我们的应用在前台时，adj的值为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">picasso:/ <span class="comment"># cat /proc/29075/oom_score_adj</span></span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<p>当锁屏时，adj的值也为0，如果在锁屏时不开启1像素的Activity，adj的值为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">picasso:/ <span class="comment"># cat /proc/31415/oom_score_adj</span></span><br><span class="line">701</span><br></pre></td></tr></table></figure>
+<p>这样得adj的值就极容易被LMKD杀死。</p>
+<blockquote>
+<p>另外注意的一点就是开启新的Activity只能在一个旧的Activity显示的时候开启，如果没有旧的Activity显示，那么1像素的Activity是无法开启的，adj的值同样很高</p>
+</blockquote>
+<h2 id="双进程拉活"><a href="#双进程拉活" class="headerlink" title="双进程拉活"></a>双进程拉活</h2><p>首先就要注意一点，想要双进程拉活，需要开启应用的自启动权限，目前国内的手机都针对保活机制进行了一定的阻断，所以要自己开启这个权限才能测试</p>
+<p>主要思路就是创建两个app，分别在两个app中创建一个Service，每个Service相互绑定，当一个Service被杀的时候，另一个进程的Service拉起这个被杀的Service。</p>
+<p>第一个app中的Service</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyService</span> <span class="keyword">extends</span> <span class="title">Service</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> String TAG = MyService.class.getSimpleName();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ServiceConnection connection = <span class="keyword">new</span> ServiceConnection() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onServiceConnected</span><span class="params">(ComponentName name, IBinder service)</span> </span>&#123;</span><br><span class="line">            Log.d(TAG, <span class="string">&quot;remote service connected&quot;</span>);</span><br><span class="line">            IMyService2 myService2 = IMyService2.Stub.asInterface(service);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">int</span> res = myService2.addPlus2(<span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">                System.out.println(res);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onServiceDisconnected</span><span class="params">(ComponentName name)</span> </span>&#123;</span><br><span class="line">            Log.d(TAG, <span class="string">&quot;remote service disconnected&quot;</span>);</span><br><span class="line">            Intent remoteIntent = <span class="keyword">new</span> Intent();</span><br><span class="line">            remoteIntent.setAction(<span class="string">&quot;com.sui.REMOTE&quot;</span>);</span><br><span class="line">            remoteIntent.setPackage(<span class="string">&quot;com.sui.mutiprocessapplication2&quot;</span>);</span><br><span class="line"></span><br><span class="line">            bindService(remoteIntent, connection, BIND_AUTO_CREATE);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Nullable</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IBinder <span class="title">onBind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> myBinder;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> IMyService.Stub myBinder = <span class="keyword">new</span> IMyService.Stub() &#123;</span><br><span class="line"></span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">addPlus1</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">return</span> x + y;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">&quot;local service onCreate&quot;</span>);</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">onStartCommand</span><span class="params">(Intent intent, <span class="keyword">int</span> flags, <span class="keyword">int</span> startId)</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">&quot;local service onStartCommand&quot;</span>);</span><br><span class="line">        Intent remoteIntent = <span class="keyword">new</span> Intent();</span><br><span class="line">        remoteIntent.setAction(<span class="string">&quot;com.sui.REMOTE&quot;</span>);</span><br><span class="line">        remoteIntent.setPackage(<span class="string">&quot;com.sui.mutiprocessapplication2&quot;</span>);</span><br><span class="line">        bindService(remoteIntent, connection, BIND_AUTO_CREATE);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> START_NOT_STICKY;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>AndroidMainfest主要文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">service</span> <span class="attr">android:exported</span>=<span class="string">&quot;true&quot;</span> <span class="attr">android:name</span>=<span class="string">&quot;.MyService&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;com.sui.LOCAL&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.DEFAULT&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意：命名第一个Service的进程名称为local（只是形式上的命名，并没有真实的指定Service进程的名称，Service还是在主进程中），并且设置 <code>android:exported</code>为true，否则其他绑定不了这个Service</p>
+<p>第二个app中的Service</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyService</span> <span class="keyword">extends</span> <span class="title">Service</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> String TAG = MyService.class.getSimpleName();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ServiceConnection connection = <span class="keyword">new</span> ServiceConnection() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onServiceConnected</span><span class="params">(ComponentName name, IBinder service)</span> </span>&#123;</span><br><span class="line">            Log.d(TAG, <span class="string">&quot;local service connected&quot;</span>);</span><br><span class="line">            IMyService binder = IMyService.Stub.asInterface(service);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">int</span> res = binder.addPlus1(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">                System.out.println(res);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onServiceDisconnected</span><span class="params">(ComponentName name)</span> </span>&#123;</span><br><span class="line">            Log.d(TAG, <span class="string">&quot;local service disconnected&quot;</span>);</span><br><span class="line">            Intent remoteIntent = <span class="keyword">new</span> Intent();</span><br><span class="line">            remoteIntent.setAction(<span class="string">&quot;com.sui.LOCAL&quot;</span>);</span><br><span class="line">            remoteIntent.setPackage(<span class="string">&quot;com.sui.mutiprocessapplication1&quot;</span>);</span><br><span class="line">            bindService(remoteIntent, connection, BIND_AUTO_CREATE);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Nullable</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IBinder <span class="title">onBind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> IMyService2.Stub() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">addPlus2</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> x + y;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">&quot;remote service onCreate&quot;</span>);</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">onStartCommand</span><span class="params">(Intent intent, <span class="keyword">int</span> flags, <span class="keyword">int</span> startId)</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">&quot;remote service onStartCommand&quot;</span>);</span><br><span class="line">        Intent remoteIntent = <span class="keyword">new</span> Intent();</span><br><span class="line">        remoteIntent.setAction(<span class="string">&quot;com.sui.LOCAL&quot;</span>);</span><br><span class="line">        remoteIntent.setPackage(<span class="string">&quot;com.sui.mutiprocessapplication1&quot;</span>);</span><br><span class="line">        bindService(remoteIntent, connection, BIND_AUTO_CREATE);</span><br><span class="line">        <span class="keyword">return</span> START_NOT_STICKY;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>AndroidMainfest文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">service</span> <span class="attr">android:exported</span>=<span class="string">&quot;true&quot;</span> <span class="attr">android:name</span>=<span class="string">&quot;.MyService&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;com.sui.REMOTE&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.DEFAULT&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>命名第二个进程的Service为remote（只是形式上的命名，并没有真实的指定Service进程的名称，Service还是在主进程中）</p>
+<p>接下来观察一下现象，我们将两个app启动</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 第一个Service启动</span><br><span class="line">01-28 11:59:11.165 E/MyService( 2780): local service onCreate</span><br><span class="line">01-28 11:59:11.165 E/MyService( 2780): local service onStartCommand</span><br><span class="line"></span><br><span class="line"># 第二个Service启动</span><br><span class="line">01-28 11:59:18.491 E/MyService( 2838): remote service onCreate</span><br><span class="line">01-28 11:59:18.491 E/MyService( 2838): remote service onStartCommand</span><br></pre></td></tr></table></figure>
+<p>当我们杀死第二个Service的时候</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">picasso:/ <span class="comment"># ps -ef | grep com.sui</span></span><br><span class="line">u0_a251       4728 28194 0 12:00:58 ?     00:00:00 com.sui.mutiprocessapplication1</span><br><span class="line">u0_a252       4927 28194 0 12:01:15 ?     00:00:00 com.sui.mutiprocessapplication2</span><br><span class="line">root          5892  5881 3 12:39:11 pts/2 00:00:00 grep com.sui</span><br><span class="line">picasso:/ <span class="comment"># kill -9 4927</span></span><br><span class="line">picasso:/ <span class="comment"># ps -ef | grep com.sui</span></span><br><span class="line">u0_a251       4728 28194 0 12:00:58 ?     00:00:00 com.sui.mutiprocessapplication1</span><br><span class="line">u0_a252       5894 28194 6 12:39:21 ?     00:00:00 com.sui.mutiprocessapplication2</span><br><span class="line">root          5937  5881 0 12:39:23 pts/2 00:00:00 grep com.sui</span><br><span class="line">picasso:/ <span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<p>可以看到mutiprocessapplication2又重启了，再查看一下日志</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># Service2断开连接</span><br><span class="line">01-28 12:42:32.914 D/MyService( 7030): remote service disconnected</span><br><span class="line">01-28 12:42:32.921 I//vendor/bin/hw/vendor.qti.hardware.servicetracker@1.1-service(28202): size of service connections for service: com.sui.mutiprocessapplication1/.MyServiceafter removal is 0</span><br><span class="line">01-28 12:42:32.922 W/ActivityManager(28320): Scheduling restart of crashed service com.sui.mutiprocessapplication2/.MyService in 1000ms</span><br><span class="line">01-28 12:42:32.929 I//vendor/bin/hw/vendor.qti.hardware.servicetracker@1.1-service(28202): bindService is called for service : com.sui.mutiprocessapplication2/.MyService and for client com.sui.mutiprocessapplication1</span><br><span class="line">01-28 12:42:32.929 I//vendor/bin/hw/vendor.qti.hardware.servicetracker@1.1-service(28202): total connections for service : com.sui.mutiprocessapplication2/</span><br><span class="line">MyServiceare :1</span><br><span class="line">01-28 12:42:32.953 D/Boost   (28320): hostingType=service, hostingName=&#123;com.sui.mutiprocessapplication2/com.sui.mutiprocessapplication2.MyService&#125;, callerPackage=com.sui.mutiprocessapplication1, isSystem=false, isBoostNeeded=false.</span><br><span class="line">01-28 12:42:32.953 I/ActivityManager(28320): Start proc 7115:com.sui.mutiprocessapplication2/u0a252 for service &#123;com.sui.mutiprocessapplication2/com.sui.mutiprocessapplication2.MyService&#125; caller=com.sui.mutiprocessapplication1</span><br><span class="line"></span><br><span class="line"># Service2被Service1拉起</span><br><span class="line">01-28 12:42:32.993 I//vendor/bin/hw/vendor.qti.hardware.servicetracker@1.1-service(28202): startService() is called for servicecom.sui.mutiprocessapplication2/.MyService</span><br><span class="line"># Service2重新连接</span><br><span class="line">01-28 12:42:33.084 E/MyService( 7115): remote service onCreate</span><br><span class="line">01-28 12:42:33.087 D/MyService( 7030): remote service connected</span><br></pre></td></tr></table></figure>
+<p>被kill掉的进程再次启动，不会再执行onStartCommand方法，并且，如果一个进程被kill，另一个进程想要拉起，那么这个进程应该在前台，在后台是无法被拉起来的。</p>
+<blockquote>
+<p>再次提示，一定要打开两个app的自启动权限，否则app一旦被杀掉则无法被拉起了</p>
+</blockquote>
+<h2 id="提升服务进程的等级"><a href="#提升服务进程的等级" class="headerlink" title="提升服务进程的等级"></a>提升服务进程的等级</h2><p>当我们开启有个服务的时候，可以将该服务通过setForeground提升为前台服务，从而降低进程的adj值，避免被杀，只不过将服务提升为前台服务后，会在通知栏显示通知，这样还是挺不友好的。但是像天气类的、音乐播放器类的软件可以这么做，在服务中实时的获取信息，在通知栏留下通知或者操作信息，便于用户操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyService</span> <span class="keyword">extends</span> <span class="title">Service</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> String TAG = MyService.class.getSimpleName();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Nullable</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IBinder <span class="title">onBind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mBinder;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> IMyAidlInterface.Stub mBinder = <span class="keyword">new</span> IMyAidlInterface.Stub() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">addPlus</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> a + b;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printString</span><span class="params">(String msg)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">            Log.e(TAG, <span class="string">&quot;print: &quot;</span> + msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">createNotificationChannel</span><span class="params">(String channelID, String channelNAME, <span class="keyword">int</span> level)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (android.os.Build.VERSION.SDK_INT &gt;= android.os.Build.VERSION_CODES.O) &#123;</span><br><span class="line">            NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</span><br><span class="line">            NotificationChannel channel = <span class="keyword">new</span> NotificationChannel(channelID, channelNAME, level);</span><br><span class="line">            manager.createNotificationChannel(channel);</span><br><span class="line">            <span class="keyword">return</span> channelID;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequiresApi(api = Build.VERSION_CODES.O)</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setNotification</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, MyService.class);</span><br><span class="line">        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);</span><br><span class="line">        PendingIntent pendingIntent = PendingIntent.getActivity(<span class="keyword">this</span>, <span class="number">0</span>, intent, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        String channelId = createNotificationChannel(<span class="string">&quot;my_channel_ID&quot;</span>, <span class="string">&quot;my_channel_NAME&quot;</span>, NotificationManager.IMPORTANCE_HIGH);</span><br><span class="line">        NotificationCompat.Builder notification = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>, channelId)</span><br><span class="line">                .setContentTitle(<span class="string">&quot;通知&quot;</span>)</span><br><span class="line">                .setContentText(<span class="string">&quot;收到一条消息&quot;</span>)</span><br><span class="line">                .setContentIntent(pendingIntent)</span><br><span class="line">                .setSmallIcon(R.mipmap.ic_launcher)</span><br><span class="line">                .setPriority(NotificationCompat.PRIORITY_HIGH)</span><br><span class="line">                .setAutoCancel(<span class="keyword">true</span>);</span><br><span class="line">        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(<span class="keyword">this</span>);</span><br><span class="line">        notificationManager.notify(<span class="number">100</span>, notification.build());</span><br><span class="line">        <span class="comment">// 提升为前台服务</span></span><br><span class="line">        startForeground(<span class="number">100</span>, notification.build());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequiresApi(api = Build.VERSION_CODES.O)</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">&quot;service onCreate&quot;</span>);</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line"></span><br><span class="line">        setNotification();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">onStartCommand</span><span class="params">(Intent intent, <span class="keyword">int</span> flags, <span class="keyword">int</span> startId)</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">&quot;service onStartCommand&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onStartCommand(intent, flags, startId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">&quot;service onDestroy&quot;</span>);</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打开服务的时候，查看adj的值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">picasso:/ <span class="comment"># cat /proc/11793/oom_score_adj</span></span><br><span class="line">200</span><br></pre></td></tr></table></figure>
+<p>关闭服务后，进程adj的值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">picasso:/ <span class="comment"># cat /proc/11793/oom_score_adj</span></span><br><span class="line">925</span><br></pre></td></tr></table></figure>
+<p>在Android Api版本小于18的时候，Android系统存在一个bug调用startForeground传入空的Notification（即null），则不会显示通知栏，同样服务进程的adj的值也会被降低</p>
+<p>对于 API level &gt;= 18：在需要提优先级的service A启动一个InnerService，两个服务同时startForeground，且绑定同样的 ID。Stop 掉InnerService ，这样通知栏图标即被移除。(但是我在实验的时候并没有什么卵用，可能这个在Android R中是无效的了)。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40881680/article/details/85197044">https://blog.csdn.net/qq_40881680/article/details/85197044</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904130708766727">https://juejin.cn/post/6844904130708766727</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1da4541b70ad">https://www.jianshu.com/p/1da4541b70ad</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/06a1a434e057">https://www.jianshu.com/p/06a1a434e057</a></li>
+</ul>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://example.com">sui</a>
+            <p>原文链接：<a href="http://example.com/2021/01/28/Android%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB/">http://example.com/2021/01/28/Android%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB/</a>
+            <p>发表日期：<a href="http://example.com/2021/01/28/Android%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB/">January 28th 2021, 2:48:39 pm</a>
+            <p>更新日期：<a href="http://example.com/2021/01/28/Android%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB/">January 28th 2021, 2:49:06 pm</a>
+            <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2021/01/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/" title= "操作系统-操作系统概述">
+                    <div class="prevTitle">操作系统-操作系统概述</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:coolsui@126.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/lightingsui" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Android%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB"><span class="toc-number">1.</span> <span class="toc-text">Android进程保活</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%B9%BF%E6%92%AD%E4%BF%9D%E6%B4%BB"><span class="toc-number">1.1.</span> <span class="toc-text">通过广播保活</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E7%B3%BB%E6%8B%89%E8%B5%B7"><span class="toc-number">1.2.</span> <span class="toc-text">同系拉起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E5%83%8F%E7%B4%A0Activity"><span class="toc-number">1.3.</span> <span class="toc-text">1像素Activity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E8%BF%9B%E7%A8%8B%E6%8B%89%E6%B4%BB"><span class="toc-number">1.4.</span> <span class="toc-text">双进程拉活</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E5%8D%87%E6%9C%8D%E5%8A%A1%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%AD%89%E7%BA%A7"><span class="toc-number">1.5.</span> <span class="toc-text">提升服务进程的等级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">1.6.</span> <span class="toc-text">参考链接</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 19
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/28</span><a class="archive-post-title" href= "/2021/01/28/Android%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB/" >Android进程保活</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/27</span><a class="archive-post-title" href= "/2021/01/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/" >操作系统-操作系统概述</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/27</span><a class="archive-post-title" href= "/2021/01/27/Android-Service%E8%AF%A6%E8%A7%A3/" >Android-Service详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/27</span><a class="archive-post-title" href= "/2021/01/27/%E5%85%B3%E4%BA%8EApp%E5%90%AF%E5%8A%A8%E6%97%B6%E9%BB%91%E7%99%BD%E5%B1%8F%E7%9A%84%E4%BC%98%E5%8C%96/" >关于App启动时黑白屏的优化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/25</span><a class="archive-post-title" href= "/2021/01/25/Android%E7%9A%84%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F/" >Android的启动方式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/25</span><a class="archive-post-title" href= "/2021/01/25/Android-Activity%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" >Android-Activity的生命周期</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2021/01/22/Git%E9%85%8D%E7%BD%AEssh-key/" >Git配置ssh_key</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2021/01/21/Android%E4%B8%AD%E7%9A%84LowMemoryKiller%E6%9C%BA%E5%88%B6/" >Android中的LowMemoryKiller机制</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/18</span><a class="archive-post-title" href= "/2021/01/18/Git%E5%85%A5%E9%97%A8-Git%E4%BB%8B%E7%BB%8D/" >Git入门-Git介绍</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/13</span><a class="archive-post-title" href= "/2021/01/13/Git%E5%85%A5%E9%97%A8-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E4%BB%8B%E7%BB%8D/" >Git入门-版本控制介绍</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/12</span><a class="archive-post-title" href= "/2021/01/12/typora%E4%BF%AE%E6%94%B9%E5%BF%AB%E6%8D%B7%E9%94%AE/" >typora修改快捷键</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/09</span><a class="archive-post-title" href= "/2021/01/09/sublime-package-control/" >sublime-package-control</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/09</span><a class="archive-post-title" href= "/2021/01/09/sublime%E8%AE%BE%E7%BD%AEGBK%E7%BC%96%E7%A0%81/" >sublime设置GBK编码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/09</span><a class="archive-post-title" href= "/2021/01/09/%E8%AE%BE%E7%BD%AE%E5%8F%B3%E9%94%AE-%E7%94%A8sublime%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6/" >设置右键-用sublime打开文件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/07</span><a class="archive-post-title" href= "/2021/01/07/OpenGrok%E7%9A%84%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" >OpenGrok的搜索技巧</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/07</span><a class="archive-post-title" href= "/2021/01/07/%E4%BF%AE%E6%94%B9Gitlab%E5%AF%86%E7%A0%81/" >修改Gitlab密码</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/30</span><a class="archive-post-title" href= "/2020/12/30/51%E5%8D%95%E7%89%87%E6%9C%BA%E7%B3%BB%E5%88%97-LED/" >51单片机系列-LED</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/30</span><a class="archive-post-title" href= "/2020/12/30/linux%E6%8C%87%E4%BB%A4-find/" >linux指令-find</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/30</span><a class="archive-post-title" href= "/2020/12/30/linux%E6%8C%87%E4%BB%A4-grep/" >linux指令-grep</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="51单片机"><span class="iconfont-archer">&#xe606;</span>51单片机</span>
+    
+        <span class="sidebar-tag-name" data-tags="tool"><span class="iconfont-archer">&#xe606;</span>tool</span>
+    
+        <span class="sidebar-tag-name" data-tags="GitLab"><span class="iconfont-archer">&#xe606;</span>GitLab</span>
+    
+        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+    
+        <span class="sidebar-tag-name" data-tags="操作系统概述"><span class="iconfont-archer">&#xe606;</span>操作系统概述</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Linux"><span class="iconfont-archer">&#xe60a;</span>Linux</span>
+    
+        <span class="sidebar-category-name" data-categories="51单片机"><span class="iconfont-archer">&#xe60a;</span>51单片机</span>
+    
+        <span class="sidebar-category-name" data-categories="tool"><span class="iconfont-archer">&#xe60a;</span>tool</span>
+    
+        <span class="sidebar-category-name" data-categories="GitLab"><span class="iconfont-archer">&#xe60a;</span>GitLab</span>
+    
+        <span class="sidebar-category-name" data-categories="git"><span class="iconfont-archer">&#xe60a;</span>git</span>
+    
+        <span class="sidebar-category-name" data-categories="Android"><span class="iconfont-archer">&#xe60a;</span>Android</span>
+    
+        <span class="sidebar-category-name" data-categories="操作系统"><span class="iconfont-archer">&#xe60a;</span>操作系统</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "sui"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
