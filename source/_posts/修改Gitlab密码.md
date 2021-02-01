@@ -3,7 +3,7 @@ title: 修改Gitlab密码
 date: 2021-01-07 17:31:38
 tags: GitLab
 categories: [GitLab]
-cover: https://miro.medium.com/max/4010/1*j9hbjszo0zXS32yhvSkdAQ.jpeg
+cover: https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210113113011.jpeg
 ---
 ## Gitlab 密码修改
 
