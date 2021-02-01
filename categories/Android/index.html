@@ -354,6 +354,41 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2021/02/01/Android-Service-onStartCommand%E8%AF%A6%E8%A7%A3/" >
+            
+                <span>Android-Service-onStartCommand详解</span>
+        </a>
+        <div class="abstract-content">
+            Android-Service(onStartCommand详解)在上一篇我们总结了Android中的Service，接下来这篇就围绕着其中的一个生命周期方法onStartCommand()进行总结。
+之前Service中的onStart()方法已经被废弃了，取而代之的是onStartCommand()方法，该方法有三个参数
+1public int onStartCommand(Intent intent, int flags, int startId)
+
+第一个参数是启动过来的Intent信息，也就是调用者的Intent信息
+第二个参数flags代表着启动请求的附加参数，由系统传入
+通...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/01</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Service">Service</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2021/01/28/Android%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB/" >
             
                 <span>Android进程保活</span>
@@ -879,9 +914,24 @@ onStart执行在onCreate之后或者onRestart之后，此时前台可见但是..
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 19
+        Total : 20
         </div>
         <!-- search  -->
         
@@ -894,6 +944,11 @@ onStart执行在onCreate之后或者onRestart之后，此时前台可见但是..
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/2021/02/01/Android-Service-onStartCommand%E8%AF%A6%E8%A7%A3/" >Android-Service-onStartCommand详解</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1017,6 +1072,8 @@ onStart执行在onCreate之后或者onRestart之后，此时前台可见但是..
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="操作系统概述"><span class="iconfont-archer">&#xe606;</span>操作系统概述</span>
+    
+        <span class="sidebar-tag-name" data-tags="Service"><span class="iconfont-archer">&#xe606;</span>Service</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
