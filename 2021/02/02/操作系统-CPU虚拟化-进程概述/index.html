@@ -20,17 +20,26 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="sui">
-<meta property="og:url" content="http://example.com/archives/2021/01/index.html">
+    <meta name="description" content="操作系统-CPU虚拟化-进程概述目前，大多数人对进程的概念就是一个运行的程序，这个讲法从广义上来说是正确的。一个运行的进程无非就是频繁的从内存中取指令，然后执行，往复循环，直到执行完程序，最后关闭进程。 我们想让CPU一次执行多个程序，就需要让许多进程共享一个CPU，这就是时分共享技术，通过时分共享技术，每个进程执行一个CPU的时间片，当时间片到了，进行上下文切换，然后CPU执行其他的进程，但是这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统-CPU虚拟化-进程概述">
+<meta property="og:url" content="http://example.com/2021/02/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8B%E6%A6%82%E8%BF%B0/index.html">
 <meta property="og:site_name" content="sui">
+<meta property="og:description" content="操作系统-CPU虚拟化-进程概述目前，大多数人对进程的概念就是一个运行的程序，这个讲法从广义上来说是正确的。一个运行的进程无非就是频繁的从内存中取指令，然后执行，往复循环，直到执行完程序，最后关闭进程。 我们想让CPU一次执行多个程序，就需要让许多进程共享一个CPU，这就是时分共享技术，通过时分共享技术，每个进程执行一个CPU的时间片，当时间片到了，进行上下文切换，然后CPU执行其他的进程，但是这">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210128220622.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210202114451.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210202115648.png">
+<meta property="article:published_time" content="2021-02-02T06:09:31.000Z">
+<meta property="article:modified_time" content="2021-02-02T06:10:23.906Z">
 <meta property="article:author" content="sui">
+<meta property="article:tag" content="虚拟化CPU">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210128220622.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
-    <title>Sui</title>
+    <title>操作系统-CPU虚拟化-进程概述 · Sui</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -211,12 +220,23 @@
 <meta name="generator" content="Hexo 5.3.0"></head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Sui</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">操作系统-CPU虚拟化-进程概述</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Sui</a>
 </header>
@@ -228,24 +248,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            操作系统-CPU虚拟化-进程概述
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "虚拟化CPU">虚拟化CPU</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">2.2k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2021/02/02</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -346,345 +416,99 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/28/Android%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB/" >
-            
-                <span>Android进程保活</span>
-        </a>
-        <div class="abstract-content">
-            Android进程保活目前的app都想自己一直被运行，不想被杀死，从而来获取用户的信息，了解用户的互联网习性。
-国内在这一点就做的很到位，每个app几乎都做了保活处理，尤其是类似qq、微信IM类的软件，他们要保证及时的提醒用户有新消息到来，所以不能被杀死。目前国内的手机也针对这样进程保活做了一些反应对处理，他们加入了禁止自启动的机制等，来控制app的权限。同时也设有白名单，白名单中的app会被放松权限，做到自启动。所以要想做到app完全的保活，就需要和国内的手机厂商进行交涉，将我们的app放入白名单中，但是这可不是那么容易的，和大厂谈判是需要资本的，一些小的app厂商是没有资格谈判的。
-...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/" >
-            
-                <span>操作系统-操作系统概述</span>
-        </a>
-        <div class="abstract-content">
-            操作系统-操作系统概述我们目前的计算机都是以冯·诺依曼计算机为模型，主要为控制器、运算器、存储器、输入设备、输出设备，在未来的几十年，随着量子计算机的发展，冯诺依曼模型可能会被打破，那将是计算机领域的一大革新。
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="操作系统-CPU虚拟化-进程概述"><a href="#操作系统-CPU虚拟化-进程概述" class="headerlink" title="操作系统-CPU虚拟化-进程概述"></a>操作系统-CPU虚拟化-进程概述</h1><p>目前，大多数人对进程的概念就是一个运行的程序，这个讲法从广义上来说是正确的。一个运行的进程无非就是频繁的从内存中取指令，然后执行，往复循环，直到执行完程序，最后关闭进程。</p>
+<p>我们想让CPU一次执行多个程序，就需要让许多进程共享一个CPU，这就是时分共享技术，通过时分共享技术，每个进程执行一个CPU的时间片，当时间片到了，进行上下文切换，然后CPU执行其他的进程，但是这样做会损失一些性能，频繁的进行上下文切换必定会损失CPU的效率。</p>
+<blockquote>
+<p>所谓的时分共享技术就是将CPU的时间进行划分，第一个时间片执行A进程，A进程的时间片结束，将执行CPU的第二个时间片，这样CPU就被许多进程按时间进行了划分。</p>
+<p>有时分共享技术，就存在着空分共享技术。空分共享技术的含义为许多进程使用着一个大的空间，一旦某个空间分配给某个进程，那么其他进程就不允许访问，也不允许修改。</p>
+</blockquote>
+<p>时分共享技术存在着一个问题，如何确定某个进程的执行顺序，或者小一点的说就是CPU怎么知道先执行哪个进程，后执行哪个进程。这就要取决于算法了，这个算法就是CPU调度算法，它控制着进程得到CPU执行的顺序，我们会在以后的模块中专门总结进程调度算法，它也是操作系统中的重要知识点。</p>
+<p>正在执行的程序无时无刻不在访问内存，指令存在内存中，正在读取以及写入的操作也在内存中，可见内存对于操作系统是多么的重要，另外对进程很重要的就是各种寄存器，包括指令寄存器、程序计数器以及栈指针和针指针</p>
+<blockquote>
+<p>这里介绍一下机制与策略，机制主要就是实现功能，即能提供完整的解决方案，例如在操作系统中，机制提供的基本作用就是可以执行进程，更高一层的就是策略，策略主要为”哪个”，例如在操作系统中，进程调度算法就是一种策略，它选择一个进程，然后让底层的机制执行。</p>
+<p>通过这样的分层，可以将软件很好的解耦，在软件设计中是重要的一环</p>
+</blockquote>
+<h2 id="进程API"><a href="#进程API" class="headerlink" title="进程API"></a>进程API</h2><p>在了解进程API之前，先了解一下关于进程API的分类</p>
+<ul>
+<li>创建，该类API的作用主要就是创建新进程。</li>
+<li>销毁，主要用于销毁进程，主要用于想中途退出进程的应用（一般的进程在执行完毕之后会自动退出进程）</li>
+<li>等待，主要用于等待进程的停止，例如父进程调用wait等待子进程结束</li>
+<li>其他控制，例如许多操作系统提供API来暂停进程</li>
+<li>状态，获取进程的当前执行状态信息，例如进程执行了多长时间。</li>
+</ul>
+<h3 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h3><p>操作系统如何运行一个程序？操作系统首先将<strong>程序的代码</strong>以及<strong>静态数据</strong>从持久化的存储设备中<strong>加载到内存</strong>的特定区域，这些程序的代码以及静态数据在进程没有执行之前是放在硬盘或某种持久性的存储设备中。早期的操作系统会一次性的将程序执行所需要的所有数据一次性的加载到内存中，这会给内存造成严重的压力，现代的操作系统会进行懒加载（延迟加载），只加载程序执行时需要的部分数据，如果以后程序在执行的时候需要其它的数据，再到硬盘中进行加载。</p>
+<img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210128220622.png" style="zoom:50%;" />
 
-程序运行的时候会发生什么？
+<p>其次，操作系统必须为程序的运行时栈分配一些内存，程序的运行栈中包括局部变量、函数的参数以及返回地址。操作系统分配这些内存，提供给进程使用，操作系统也可能会用参数初始化栈，具体一点，就是将参数填入main函数，即argc和argv数组。</p>
+<p>然后，操作系统为程序的堆分配内存，堆中主要存放了程序运行时动态请求分配的内存，在c语言中，主要就是通过malloc请求的，在不使用这部分申请的内存时，调用free释放内存，在free时，只传入了内存的开始地址，并没有传入之前请求空间的大小，因此，在申请内存的时候，就需要有一个专门的数据结构记录申请的空间的大小。</p>
+<blockquote>
+<p>堆和栈在大多数操作系统中是可以在运行时扩展的，内存不足时，操作系统可以请求硬件进行扩展，栈是向小地址空间进行扩展，而堆是向大地址空间进行扩展</p>
+</blockquote>
+<p>最后，还将要执行一些关于IO的初始化工作，例如在UNIX中，操作系统为每个进程打开3个文件描述符（file descriptor），用于标准输入、输出、错误。用于从终端读取内容和将内容打印到屏幕。</p>
+<p>进行了这些初始化的工作，接下来OS会将CPU的使用权和控制权交给该进程。</p>
+<h2 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h2><p>我们上面已经了解了一个进程要执行时操作系统要做的大概步骤，那么接下来就应该了解一下进程都有哪些状态</p>
+<h3 id="三态模型"><a href="#三态模型" class="headerlink" title="三态模型"></a>三态模型</h3><p>三态模型为进程状态的基本模型，包含了就绪态、运行态、阻塞态</p>
+<p><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210202114451.png"></p>
+<p><strong>就绪态：</strong>进程由于没有得到CPU的时间片或者其他原因使进程处于就绪态，此时进程还没有运行</p>
+<p><strong>运行态：</strong>此时进程得到CPU的时间片，并且从就绪态转变过来，进程正在CPU上执行</p>
+<p><strong>阻塞态：</strong>在阻塞状态下，一个进程执行了某种操作，例如执行了IO请求，当IO请求结束后，进程就会变为就绪态或者从就绪态直接转移到运行态（这取决于进程调度，具有不确定性）</p>
+<h3 id="五态模型"><a href="#五态模型" class="headerlink" title="五态模型"></a>五态模型</h3><p>在基本的三态模型下，引入了更加详细的五态模型，用来描述更加复杂的进程状态转换</p>
+<p>在三态模型的基础上，加入了新建态和终止态</p>
+<p><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210202115648.png"></p>
+<p><strong>新建态：</strong>进程被刚刚创建，还不能运行</p>
+<p><strong>终止态：</strong>进程运行已经结束，回收除进程控制块之外的其他资源</p>
+<p>进程的另外一些状态包括已退出但未清理状态（在Linux中称为僵尸进程），这个状态非常有用，他可以用来检测一个命令是否执行成功，如果执行成功将返回0，执行不成功将返回非0数字，另外父子进程中，父进程通过调用wait来等待子进程执行完毕（将在下一篇总结中详解wait），并且告诉操作系统它可以清理这个正在结束的进程的所有相关数据结构</p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>操作系统是一个程序，他和其他程序一样，需要一些关键的数据结构来跟踪各种相关的信息。</p>
+<p>他为每个就绪态的进程创建进程列表用来保留其信息，又要通过数据结构跟踪每个正在运行的进程的信息，另外还得跟踪被阻塞的进程。</p>
+<p>操作系统中一个重要的数据结构就是进程列表，任何能够同时运行许多进程的操作系统都应该有它，以便跟踪系统中所有正在运行的程序，将存储关于进程的个体结构称之为进程控制块（Process Control Block，PCB）</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本篇总结了虚拟化CPU的概念，并且解释了一下时分共享技术与空分共享技术。还说明了一个进程要执行，操作系统都需要执行哪些步骤，又从进程的状态开始，分别阐述了五态模型和三态模型，最后指明了操作系统中无处不在的数据结构。</p>
+<p>下一篇基于本篇的进程API分类，逐一列出进程的部分API。</p>
 
-从内存中取出指令
-对取出的指令进行解码
-执行指令
-
-如此往复循环，直到执行完程序。
-实际上，有一类软件可以让运行程序变得更简单，更方便，甚至可以一次运行多个程序，进行多道程序处理，帮助计算机的使用者管理内存、磁盘等硬件，这类软件叫做操作系统，早期又称为监管程序、主控程序。
-操作系统为应用程序提供了很多的API，这些API可以帮助应用程序访问各种硬件...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "操作系统概述">操作系统概述</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/27/Android-Service%E8%AF%A6%E8%A7%A3/" >
-            
-                <span>Android-Service详解</span>
-        </a>
-        <div class="abstract-content">
-            Android-Service详解Service是安卓的四大组件之一，在我们的日常开发中经常会使用到，例如执行一些后台操作，播放音乐、下载等等。
-接下来我们就从一个简单的Service的使用开始，一步一步的深入介绍Service
-Service简单使用创建一个Activity，在Activity中设置两个按钮，用于启动、关闭Service，而在Service中只是打印一些生命周期的Log，并不去做什么事。
-MainActivity
-12345678910111213141516171819202122232425262728293031public class MainActivity ...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://example.com">sui</a>
+            <p>原文链接：<a href="http://example.com/2021/02/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8B%E6%A6%82%E8%BF%B0/">http://example.com/2021/02/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8B%E6%A6%82%E8%BF%B0/</a>
+            <p>发表日期：<a href="http://example.com/2021/02/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8B%E6%A6%82%E8%BF%B0/">February 2nd 2021, 2:09:31 pm</a>
+            <p>更新日期：<a href="http://example.com/2021/02/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8B%E6%A6%82%E8%BF%B0/">February 2nd 2021, 2:10:23 pm</a>
+            <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/27/%E5%85%B3%E4%BA%8EApp%E5%90%AF%E5%8A%A8%E6%97%B6%E9%BB%91%E7%99%BD%E5%B1%8F%E7%9A%84%E4%BC%98%E5%8C%96/" >
-            
-                <span>关于App启动时黑白屏的优化</span>
-        </a>
-        <div class="abstract-content">
-            关于App启动时黑白屏的优化Android中黑白屏是由于系统启动时，Activity正在由WindowManager进行加载，还没有绘制完成，而系统会先将Theme中的windowBackground加载出来，就会导致我们看到的颜色为windowBackground设置的颜色。
-可以通过设置windowBackground为一张图片或者其他的颜色，来提升用户体验，或者将windowBackground设置为透明的。
-新建立一个主题
-12345&lt;style name=&quot;Theme.Customer&quot; parent=&quot;Theme.MaterialCompo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/25/Android%E7%9A%84%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F/" >
-            
-                <span>Android的启动方式</span>
-        </a>
-        <div class="abstract-content">
-            Android的启动方式Android进程的启动方式有三种，分别为冷启动，热启动与温启动
-冷启动主要指在缓存进程中没有当前启动进程的信息，例如第一次启动进程或者将进程kill掉了重新启动，冷启动的时间会长一点
-温启动为应用已经启动了，但是通过返回键退出了，此时再次启动这个进程就为温启动
-热启动代表的就是应用已经启动，但是应用通过Home键返回，再次启动进程就为热启动，热启动花费的时间最少，但是系统开销最大
-我们当然希望手机上的进程都为热启动，这样能有很好的用户体验，但是热启动也是要付出内存的代价的，大量缓存的进程在后台会造成严重的内存积压，当内存不可用的时候，就会触发LowMemoryK...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/25/Android-Activity%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" >
-            
-                <span>Android-Activity的生命周期</span>
-        </a>
-        <div class="abstract-content">
-            Android-Activity的生命周期Activity的生命周期主要有如下几个
-
-onCreate
-onRestart
-onStart
-onResume
-onPause
-onStop
-onDestroy
-
-onCreate主要在Activity创建的时候执行
-onRestart在返回Activity前台时候执行，例如使用home键挂在后台，然后再次打开前台，就会执行onRestart，或者在一个Activity中打开了另一个Activity，再次返回这个Activity时，也会执行onRestart
-onStart执行在onCreate之后或者onRestart之后，此时前台可见但是...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/22/Git%E9%85%8D%E7%BD%AEssh-key/" >
-            
-                <span>Git配置ssh_key</span>
-        </a>
-        <div class="abstract-content">
-            Git配置ssh keyssh key的作用就是起到与github互通的作用，如果没有设置ssh key，当我们提交代码，都会要求输入账号和密码，这样很麻烦，有了ssh key，就可以在github中标识我们的git客户端，即代表了此git客户端已经获得了github的认证，再次提交时就不需要密码了。
-
-此处是以github为远端仓库，例如gitlab等都是一个样，本质上github与gitlab也没有特别大的区别
-
-设置1ssh-keygen -t rsa -C &#x27;邮箱&#x27;
-设置秘钥的保存路径（默认保存在/home/username/.ssh/id_rsa下）
-1En...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "git">git</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/21/Android%E4%B8%AD%E7%9A%84LowMemoryKiller%E6%9C%BA%E5%88%B6/" >
-            
-                <span>Android中的LowMemoryKiller机制</span>
-        </a>
-        <div class="abstract-content">
-            Android中的LowMemoryKiller机制
-本文所有源码来自于原生Android 11源代码。在线查看网站https://android-opengrok.bangnimang.net/android-11.0.0_r8/
-
-进程的启动分为冷启动和热启动，当用户退出进程后，Android系统不会立即将此进程回收，而是将其放到后台运行，下次再启动这个程序的时候，直接将这个放在后台的进程拉起来使用，加快启动速度，这种启动方式称为热启动。而冷启动则是重新为这个程序分配进程。
-那么问题来了，当启动的程序较多，然后又退出了，后台就会留下很多这种空的进程，占据了大量的内存空间。Androi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/18/Git%E5%85%A5%E9%97%A8-Git%E4%BB%8B%E7%BB%8D/" >
-            
-                <span>Git入门-Git介绍</span>
-        </a>
-        <div class="abstract-content">
-            Git 入门-Git 介绍
-以下文章中的图片大部分借鉴于 https://git-scm.com/book/zh/v2
-
-Git诞生在Linux之父的手中，起初的目的是用来管理Linux内核源码。
-Linux的源码当时是托管在一个叫做BitKeeper的平台上的，但是由于两公司的利益关系，Linux与BitKeeper在2005年终止了合作，这样以来Linux源代码就无处安放了，但是我们的Linux之父怎么能忍受这种技术上的”屈辱”呢，Linux之父一生气就自己动手制造出来了Git工具。
-Git 起步上文中介绍了关于版本控制的概念，以及略微的说了一点关于Git的基础知识，下面我们就再来深...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/18</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/13/Git%E5%85%A5%E9%97%A8-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E4%BB%8B%E7%BB%8D/" >
-            
-                <span>Git入门-版本控制介绍</span>
-        </a>
-        <div class="abstract-content">
-            Git入门-版本控制介绍再介绍Git之前，先介绍一下版本控制，什么是版本控制，其实在我们平常的工作中，就已经用到了版本控制，只不过你的版本控制是这样的
-
-这样做的坏处就是我们每次都要复制文件，占用了太多的磁盘空间，如果文件像上面这样的word文档还好点，如果是几百个G的代码，这样复制几回，磁盘岂不是没有空间了。另外，如果对文件或者文件夹的命名稍有那么一点点的不规范，随着文件数量的增加，那么你就分不清各个版本谁在谁之前了。
-版本控制版本控制的引出最先是从管理代码的版本开始的，由于代码的版本管理特别不方便，如果回溯到之前的代码进行查看，就需要找到当时的文件，如果你的文件编号特别随意（例如上面...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/13</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2021/02/01/Android-Service-onStartCommand%E8%AF%A6%E8%A7%A3/" title= "Android-Service-onStartCommand详解">
+                    <div class="prevTitle">Android-Service-onStartCommand详解</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/2021/01/page/2/">2</a><a class="extend next" rel="next" href="/archives/2021/01/page/2/">NEXT &gt;</a>
-    </nav>
     
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -769,6 +593,24 @@ Git 起步上文中介绍了关于版本控制的概念，以及略微的说了�
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8B%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">操作系统-CPU虚拟化-进程概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8BAPI"><span class="toc-number">1.1.</span> <span class="toc-text">进程API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">预备知识</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81"><span class="toc-number">1.2.</span> <span class="toc-text">进程的状态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E6%80%81%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">三态模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E6%80%81%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.2.</span> <span class="toc-text">五态模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.</span> <span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1269,6 +1111,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
