@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="sui">
-<meta property="og:url" content="http://example.com/tags/GitLab/index.html">
+<meta property="og:url" content="http://example.com/tags/Vim/index.html">
 <meta property="og:site_name" content="sui">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="sui">
@@ -354,26 +354,27 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/07/%E4%BF%AE%E6%94%B9Gitlab%E5%AF%86%E7%A0%81/" >
+        <a class="abstract-title" href = "/2021/02/03/Vim%E8%AE%BE%E7%BD%AEtab%E7%BC%A9%E8%BF%9B%E7%9A%84%E6%95%B0%E9%87%8F/" >
             
-                <span>修改Gitlab密码</span>
+                <span>Vim设置tab缩进的数量</span>
         </a>
         <div class="abstract-content">
-            Gitlab 密码修改使用root用户
-1gitlab-rails console production
-但是在我的CentOS上是报错的，如下错误（如果执行上述命令不出现错误，就不需要理会下面的错误）
-12345678910111213141516171819202122Traceback (most recent call last):	8: from bin/rails:4:in `&lt;main&gt;&#x27;	7: from bin/rails:4:in `require&#x27;	6: from /opt/gitlab/embedded/lib/ruby/gems/2...
+            Vim设置tab缩进的数量vim编辑器默认tab缩进8个空格，需要我们手动修改为缩进4个空格
+在redhat下，vim配置文件在/etc/vimrc，ubuntu下，配置文件在/etc/vim/vimrc，
+找到配置文件，在配置文件的末尾加上set tabstop=4
+重新启动vim，再次使用tab即缩进4个空格
+
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/07</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/03</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "GitLab">GitLab</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Vim">Vim</a>
     
 </div>
             

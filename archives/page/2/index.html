@@ -354,6 +354,74 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2021/01/22/Git%E9%85%8D%E7%BD%AEssh-key/" >
+            
+                <span>Git配置ssh_key</span>
+        </a>
+        <div class="abstract-content">
+            Git配置ssh keyssh key的作用就是起到与github互通的作用，如果没有设置ssh key，当我们提交代码，都会要求输入账号和密码，这样很麻烦，有了ssh key，就可以在github中标识我们的git客户端，即代表了此git客户端已经获得了github的认证，再次提交时就不需要密码了。
+
+此处是以github为远端仓库，例如gitlab等都是一个样，本质上github与gitlab也没有特别大的区别
+
+设置1ssh-keygen -t rsa -C &#x27;邮箱&#x27;
+设置秘钥的保存路径（默认保存在/home/username/.ssh/id_rsa下）
+1En...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "git">git</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2021/01/21/Android%E4%B8%AD%E7%9A%84LowMemoryKiller%E6%9C%BA%E5%88%B6/" >
+            
+                <span>Android中的LowMemoryKiller机制</span>
+        </a>
+        <div class="abstract-content">
+            Android中的LowMemoryKiller机制
+本文所有源码来自于原生Android 11源代码。在线查看网站https://android-opengrok.bangnimang.net/android-11.0.0_r8/
+
+进程的启动分为冷启动和热启动，当用户退出进程后，Android系统不会立即将此进程回收，而是将其放到后台运行，下次再启动这个程序的时候，直接将这个放在后台的进程拉起来使用，加快启动速度，这种启动方式称为热启动。而冷启动则是重新为这个程序分配进程。
+那么问题来了，当启动的程序较多，然后又退出了，后台就会留下很多这种空的进程，占据了大量的内存空间。Androi...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/21</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2021/01/18/Git%E5%85%A5%E9%97%A8-Git%E4%BB%8B%E7%BB%8D/" >
             
                 <span>Git入门-Git介绍</span>
@@ -582,76 +650,6 @@ AND(&amp;&amp;...
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "GitLab">GitLab</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/30/51%E5%8D%95%E7%89%87%E6%9C%BA%E7%B3%BB%E5%88%97-LED/" >
-            
-                <span>51单片机系列-LED</span>
-        </a>
-        <div class="abstract-content">
-            51单片机系列-LED单片机点亮LED是一项基本的操作，也是入门操作，通过分析电路以及原理来点亮LED。
-
-
-可以看到单片机的8个LED接在了P2口上，那么通过操作P2口的高低电平就可以点亮或者关闭LED。
-当P2口输出低电平时，可以点亮LED，输出高电平时，会熄灭LED。那么接下来看一下代码
-123456789#include &lt;reg51.h&gt;sbit LED1 = P2^0;void main() &#123;	while(1) &#123;		LED1 = 0;	&#125;&#125;
-直接通过sbit定义一个单片机的引脚，然后通过赋值低电平使其点亮。
-流水灯流水灯...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "51单片机">51单片机</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/30/linux%E6%8C%87%E4%BB%A4-grep/" >
-            
-                <span>linux指令-grep</span>
-        </a>
-        <div class="abstract-content">
-            grep命令grep命令，全称（Global Regular Expression Print，表示全局正则表达式版本），用来做文本匹配十分厉害，堪称神器。
-命令格式
-1grep [option] pattern file
-参数
-这里有一个测试文件，内容为：
-123456789101112131415aaaaaaaaaaaaaaaabbbbbbbbbbbbbcccccccccccccccddddddddddddddeeeeeeeeeeeeeeeeeffffffffffffffffffgggggggggggggggggghhhhhhhhhhhhhhhhhhiiiiiiiiiiiiiiiii...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Linux">Linux</a>
     
 </div>
             
@@ -1016,9 +1014,39 @@ AND(&amp;&amp;...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 21
+        Total : 23
         </div>
         <!-- search  -->
         
@@ -1031,6 +1059,16 @@ AND(&amp;&amp;...
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/03</span><a class="archive-post-title" href= "/2021/02/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8BAPI/" >操作系统-CPU虚拟化-进程API</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/03</span><a class="archive-post-title" href= "/2021/02/03/Vim%E8%AE%BE%E7%BD%AEtab%E7%BC%A9%E8%BF%9B%E7%9A%84%E6%95%B0%E9%87%8F/" >Vim设置tab缩进的数量</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1167,7 +1205,11 @@ AND(&amp;&amp;...
     
         <span class="sidebar-tag-name" data-tags="Service"><span class="iconfont-archer">&#xe606;</span>Service</span>
     
+        <span class="sidebar-tag-name" data-tags="CPU虚拟化"><span class="iconfont-archer">&#xe606;</span>CPU虚拟化</span>
+    
         <span class="sidebar-tag-name" data-tags="虚拟化CPU"><span class="iconfont-archer">&#xe606;</span>虚拟化CPU</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vim"><span class="iconfont-archer">&#xe606;</span>Vim</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

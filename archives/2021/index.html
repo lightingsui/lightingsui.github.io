@@ -354,6 +354,70 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2021/02/03/Vim%E8%AE%BE%E7%BD%AEtab%E7%BC%A9%E8%BF%9B%E7%9A%84%E6%95%B0%E9%87%8F/" >
+            
+                <span>Vim设置tab缩进的数量</span>
+        </a>
+        <div class="abstract-content">
+            Vim设置tab缩进的数量vim编辑器默认tab缩进8个空格，需要我们手动修改为缩进4个空格
+在redhat下，vim配置文件在/etc/vimrc，ubuntu下，配置文件在/etc/vim/vimrc，
+找到配置文件，在配置文件的末尾加上set tabstop=4
+重新启动vim，再次使用tab即缩进4个空格
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Vim">Vim</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2021/02/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8BAPI/" >
+            
+                <span>操作系统-CPU虚拟化-进程API</span>
+        </a>
+        <div class="abstract-content">
+            操作系统-CPU虚拟化-进程API上一节的操作系统中我们对进程进行了一个概述，这一篇中我们就围绕着进程的API进行一个总结
+fork系统调用系统调用fork()用于创建新的进程，它创建一次，返回两次，在父进程中，返回大于0的数为子进程的pid，返回小于0的数代表着创建失败（此时系统中的进程数已达规定的最大进程数），在子进程中返回0代表着创建成功。下面通过一个例子认识一下
+123456789101112131415161718192021#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#include &lt;unistd.h&gt;int...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "CPU虚拟化">CPU虚拟化</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2021/02/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8B%E6%A6%82%E8%BF%B0/" >
             
                 <span>操作系统-CPU虚拟化-进程概述</span>
@@ -612,74 +676,6 @@ onStart执行在onCreate之后或者onRestart之后，此时前台可见但是..
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/22/Git%E9%85%8D%E7%BD%AEssh-key/" >
-            
-                <span>Git配置ssh_key</span>
-        </a>
-        <div class="abstract-content">
-            Git配置ssh keyssh key的作用就是起到与github互通的作用，如果没有设置ssh key，当我们提交代码，都会要求输入账号和密码，这样很麻烦，有了ssh key，就可以在github中标识我们的git客户端，即代表了此git客户端已经获得了github的认证，再次提交时就不需要密码了。
-
-此处是以github为远端仓库，例如gitlab等都是一个样，本质上github与gitlab也没有特别大的区别
-
-设置1ssh-keygen -t rsa -C &#x27;邮箱&#x27;
-设置秘钥的保存路径（默认保存在/home/username/.ssh/id_rsa下）
-1En...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "git">git</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/21/Android%E4%B8%AD%E7%9A%84LowMemoryKiller%E6%9C%BA%E5%88%B6/" >
-            
-                <span>Android中的LowMemoryKiller机制</span>
-        </a>
-        <div class="abstract-content">
-            Android中的LowMemoryKiller机制
-本文所有源码来自于原生Android 11源代码。在线查看网站https://android-opengrok.bangnimang.net/android-11.0.0_r8/
-
-进程的启动分为冷启动和热启动，当用户退出进程后，Android系统不会立即将此进程回收，而是将其放到后台运行，下次再启动这个程序的时候，直接将这个放在后台的进程拉起来使用，加快启动速度，这种启动方式称为热启动。而冷启动则是重新为这个程序分配进程。
-那么问题来了，当启动的程序较多，然后又退出了，后台就会留下很多这种空的进程，占据了大量的内存空间。Androi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/21</span>
             </div>
             <!-- tags  -->
             
@@ -1050,9 +1046,39 @@ onStart执行在onCreate之后或者onRestart之后，此时前台可见但是..
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 21
+        Total : 23
         </div>
         <!-- search  -->
         
@@ -1065,6 +1091,16 @@ onStart执行在onCreate之后或者onRestart之后，此时前台可见但是..
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/03</span><a class="archive-post-title" href= "/2021/02/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8BAPI/" >操作系统-CPU虚拟化-进程API</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/03</span><a class="archive-post-title" href= "/2021/02/03/Vim%E8%AE%BE%E7%BD%AEtab%E7%BC%A9%E8%BF%9B%E7%9A%84%E6%95%B0%E9%87%8F/" >Vim设置tab缩进的数量</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1201,7 +1237,11 @@ onStart执行在onCreate之后或者onRestart之后，此时前台可见但是..
     
         <span class="sidebar-tag-name" data-tags="Service"><span class="iconfont-archer">&#xe606;</span>Service</span>
     
+        <span class="sidebar-tag-name" data-tags="CPU虚拟化"><span class="iconfont-archer">&#xe606;</span>CPU虚拟化</span>
+    
         <span class="sidebar-tag-name" data-tags="虚拟化CPU"><span class="iconfont-archer">&#xe606;</span>虚拟化CPU</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vim"><span class="iconfont-archer">&#xe606;</span>Vim</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

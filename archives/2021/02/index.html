@@ -354,6 +354,70 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2021/02/03/Vim%E8%AE%BE%E7%BD%AEtab%E7%BC%A9%E8%BF%9B%E7%9A%84%E6%95%B0%E9%87%8F/" >
+            
+                <span>Vim设置tab缩进的数量</span>
+        </a>
+        <div class="abstract-content">
+            Vim设置tab缩进的数量vim编辑器默认tab缩进8个空格，需要我们手动修改为缩进4个空格
+在redhat下，vim配置文件在/etc/vimrc，ubuntu下，配置文件在/etc/vim/vimrc，
+找到配置文件，在配置文件的末尾加上set tabstop=4
+重新启动vim，再次使用tab即缩进4个空格
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Vim">Vim</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2021/02/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8BAPI/" >
+            
+                <span>操作系统-CPU虚拟化-进程API</span>
+        </a>
+        <div class="abstract-content">
+            操作系统-CPU虚拟化-进程API上一节的操作系统中我们对进程进行了一个概述，这一篇中我们就围绕着进程的API进行一个总结
+fork系统调用系统调用fork()用于创建新的进程，它创建一次，返回两次，在父进程中，返回大于0的数为子进程的pid，返回小于0的数代表着创建失败（此时系统中的进程数已达规定的最大进程数），在子进程中返回0代表着创建成功。下面通过一个例子认识一下
+123456789101112131415161718192021#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#include &lt;unistd.h&gt;int...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "CPU虚拟化">CPU虚拟化</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2021/02/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8B%E6%A6%82%E8%BF%B0/" >
             
                 <span>操作系统-CPU虚拟化-进程概述</span>
@@ -769,9 +833,39 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 21
+        Total : 23
         </div>
         <!-- search  -->
         
@@ -784,6 +878,16 @@
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/03</span><a class="archive-post-title" href= "/2021/02/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8BAPI/" >操作系统-CPU虚拟化-进程API</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/03</span><a class="archive-post-title" href= "/2021/02/03/Vim%E8%AE%BE%E7%BD%AEtab%E7%BC%A9%E8%BF%9B%E7%9A%84%E6%95%B0%E9%87%8F/" >Vim设置tab缩进的数量</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -920,7 +1024,11 @@
     
         <span class="sidebar-tag-name" data-tags="Service"><span class="iconfont-archer">&#xe606;</span>Service</span>
     
+        <span class="sidebar-tag-name" data-tags="CPU虚拟化"><span class="iconfont-archer">&#xe606;</span>CPU虚拟化</span>
+    
         <span class="sidebar-tag-name" data-tags="虚拟化CPU"><span class="iconfont-archer">&#xe606;</span>虚拟化CPU</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vim"><span class="iconfont-archer">&#xe606;</span>Vim</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
