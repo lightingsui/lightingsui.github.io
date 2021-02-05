@@ -354,6 +354,64 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2021/02/05/linux%E6%8C%87%E4%BB%A4-cp/" >
+            
+                <span>linux指令-cp</span>
+        </a>
+        <div class="abstract-content">
+            linux指令-cpcp指令我们一般用来进行文件的复制，全称为 copy files and directories。但是，不同的身份执行这个命令会得到不同的结果。
+命令格式：
+123cp [OPTION]... [-T] SOURCE DESTcp [OPTION]... SOURCE... DIRECTORYcp [OPTION]... -t DIRECTORY SOURCE...
+参数：
+
+
+
+参数
+解释
+
+
+
+-a
+相当于-dr
+
+
+-d
+若复制的文件为软链接文件，则会复制软链接所指的文件，而非软链接本身
+
+
+-f
+强制执行
+
+
+-i
+若目标文件存在，则询问是否覆盖
+
+
+-l
+对...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/05</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "cp">cp</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2021/02/05/linux%E6%8C%87%E4%BB%A4-ls/" >
             
                 <span>linux指令-ls</span>
@@ -690,38 +748,6 @@ fork系统调用系统调用fork()用于创建新的进程，它创建一次，�
 Service简单使用创建一个Activity，在Activity中设置两个按钮，用于启动、关闭Service，而在Service中只是打印一些生命周期的Log，并不去做什么事。
 MainActivity
 12345678910111213141516171819202122232425262728293031public class MainActivity ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/27/%E5%85%B3%E4%BA%8EApp%E5%90%AF%E5%8A%A8%E6%97%B6%E9%BB%91%E7%99%BD%E5%B1%8F%E7%9A%84%E4%BC%98%E5%8C%96/" >
-            
-                <span>关于App启动时黑白屏的优化</span>
-        </a>
-        <div class="abstract-content">
-            关于App启动时黑白屏的优化Android中黑白屏是由于系统启动时，Activity正在由WindowManager进行加载，还没有绘制完成，而系统会先将Theme中的windowBackground加载出来，就会导致我们看到的颜色为windowBackground设置的颜色。
-可以通过设置windowBackground为一张图片或者其他的颜色，来提升用户体验，或者将windowBackground设置为透明的。
-新建立一个主题
-12345&lt;style name=&quot;Theme.Customer&quot; parent=&quot;Theme.MaterialCompo...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1157,9 +1183,24 @@ MainActivity
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 25
+        Total : 26
         </div>
         <!-- search  -->
         
@@ -1172,6 +1213,11 @@ MainActivity
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/05</span><a class="archive-post-title" href= "/2021/02/05/linux%E6%8C%87%E4%BB%A4-cp/" >linux指令-cp</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1335,6 +1381,8 @@ MainActivity
         <span class="sidebar-tag-name" data-tags="format"><span class="iconfont-archer">&#xe606;</span>format</span>
     
         <span class="sidebar-tag-name" data-tags="ls"><span class="iconfont-archer">&#xe606;</span>ls</span>
+    
+        <span class="sidebar-tag-name" data-tags="cp"><span class="iconfont-archer">&#xe606;</span>cp</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="sui">
-<meta property="og:url" content="http://example.com/categories/Linux/index.html">
+<meta property="og:url" content="http://example.com/tags/cp/index.html">
 <meta property="og:site_name" content="sui">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="sui">
@@ -354,89 +354,52 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/30/linux%E6%8C%87%E4%BB%A4-grep/" >
+        <a class="abstract-title" href = "/2021/02/05/linux%E6%8C%87%E4%BB%A4-cp/" >
             
-                <span>linux指令-grep</span>
+                <span>linux指令-cp</span>
         </a>
         <div class="abstract-content">
-            linux指令-grepgrep命令，全称（Global Regular Expression Print，表示全局正则表达式版本），用来做文本匹配十分厉害，堪称神器。
-命令格式
-1grep [option] pattern file
+            linux指令-cpcp指令我们一般用来进行文件的复制，全称为 copy files and directories。但是，不同的身份执行这个命令会得到不同的结果。
+命令格式：
+123cp [OPTION]... [-T] SOURCE DESTcp [OPTION]... SOURCE... DIRECTORYcp [OPTION]... -t DIRECTORY SOURCE...
+参数：
+
+
+
 参数
-这里有一个测试文件，内容为：
-123456789101112131415aaaaaaaaaaaaaaaabbbbbbbbbbbbbcccccccccccccccddddddddddddddeeeeeeeeeeeeeeeeeffffffffffffffffffgggggggggggggggggghhhhhhhhhhhhhhhhhhiiiiiiiiiii...
+解释
+
+
+
+-a
+相当于-dr
+
+
+-d
+若复制的文件为软链接文件，则会复制软链接所指的文件，而非软链接本身
+
+
+-f
+强制执行
+
+
+-i
+若目标文件存在，则询问是否覆盖
+
+
+-l
+对...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/30</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/05</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Linux">Linux</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/12/30/linux%E6%8C%87%E4%BB%A4-find/" >
-            
-                <span>linux指令-find</span>
-        </a>
-        <div class="abstract-content">
-            linux指令-findfind命令主要用于文件搜索，那是相当的快呀。
-find命令使用格式：
-1find path test action
-
-path表示要搜索的目录，可以同时搜索多个目录，用空格隔开
-test表示条件，可以有多个条件
-action为搜索后的动作
-
-条件（test）
-
-
-条件
-说明
-
-
-
--name pattern
-通过文件名进行查找
-
-
--type f/d
-通过文件类型进行查找，d=directory，f=file
-
-
--perm pattern
-按文件或者文件夹的权限进行匹配（例如644、755）
-
-
--user userId
-查找文件为指定用户id的文件
-
-
--g...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Linux">Linux</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "cp">cp</a>
     
 </div>
             
