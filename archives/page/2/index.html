@@ -354,6 +354,39 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2021/01/25/Android%E7%9A%84%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F/" >
+            
+                <span>Android的启动方式</span>
+        </a>
+        <div class="abstract-content">
+            Android的启动方式Android进程的启动方式有三种，分别为冷启动，热启动与温启动
+冷启动主要指在缓存进程中没有当前启动进程的信息，例如第一次启动进程或者将进程kill掉了重新启动，冷启动的时间会长一点
+温启动为应用已经启动了，但是通过返回键退出了，此时再次启动这个进程就为温启动
+热启动代表的就是应用已经启动，但是应用通过Home键返回，再次启动进程就为热启动，热启动花费的时间最少，但是系统开销最大
+我们当然希望手机上的进程都为热启动，这样能有很好的用户体验，但是热启动也是要付出内存的代价的，大量缓存的进程在后台会造成严重的内存积压，当内存不可用的时候，就会触发LowMemoryK...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2021/01/25/Android-Activity%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" >
             
                 <span>Android-Activity的生命周期</span>
@@ -622,45 +655,6 @@ Git 起步上文中介绍了关于版本控制的概念，以及略微的说了�
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/09</span>
             </div>
             <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/07/OpenGrok%E7%9A%84%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" >
-            
-                <span>OpenGrok的搜索技巧</span>
-        </a>
-        <div class="abstract-content">
-            OpenGrok的搜索技巧在OpenGrok中，有以下几种搜索栏目
-
-Full Path 为全搜索，在里面输入的字符会进行全部匹配，把文件里包含此字符的文件都列出来（包含注释等）
-Definition 为定义搜索（主要用来搜索一些函数定义等），把包含输入的定义输出出来，例如在Definition中输入allLowerCaseAscii，结果如下
-
-Symbol为符号搜索，主要用来搜索一下成员变量等
-File Path为路径搜索，用来搜索包含指定为字符串的路径
-基本搜索以上输入框中，都存在一些搜索技巧
-+ 表示包含指定字符串内容
-- 表示不包含指定字符串的内容
-AND(&amp;&amp;...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "tool">tool</a>
-    
-</div>
             
         </div>
     </article>
@@ -1068,9 +1062,24 @@ AND(&amp;&amp;...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 24
+        Total : 25
         </div>
         <!-- search  -->
         
@@ -1083,6 +1092,11 @@ AND(&amp;&amp;...
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/05</span><a class="archive-post-title" href= "/2021/02/05/linux%E6%8C%87%E4%BB%A4-ls/" >linux指令-ls</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1239,6 +1253,8 @@ AND(&amp;&amp;...
         <span class="sidebar-tag-name" data-tags="Vim"><span class="iconfont-archer">&#xe606;</span>Vim</span>
     
         <span class="sidebar-tag-name" data-tags="format"><span class="iconfont-archer">&#xe606;</span>format</span>
+    
+        <span class="sidebar-tag-name" data-tags="ls"><span class="iconfont-archer">&#xe606;</span>ls</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
