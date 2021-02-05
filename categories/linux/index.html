@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="sui">
-<meta property="og:url" content="http://example.com/tags/tool/index.html">
+<meta property="og:url" content="http://example.com/categories/linux/index.html">
 <meta property="og:site_name" content="sui">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="sui">
@@ -354,33 +354,57 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/07/OpenGrok%E7%9A%84%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/" >
+        <a class="abstract-title" href = "/2021/02/05/linux%E6%8C%87%E4%BB%A4-cut/" >
             
-                <span>OpenGrok的搜索技巧</span>
+                <span>linux指令-cut</span>
         </a>
         <div class="abstract-content">
-            OpenGrok的搜索技巧在OpenGrok中，有以下几种搜索栏目
+            linux指令-cutlinux中cut命令是常用的文本处理命令之一，通常用来截取字符，将字符切片处理，它的处理单元为一行，也就是一行一行的进行处理，最后得到我们想要的结果
+命令格式：
+1cut OPTION... [FILE]...
+参数信息：
 
-Full Path 为全搜索，在里面输入的字符会进行全部匹配，把文件里包含此字符的文件都列出来（包含注释等）
-Definition 为定义搜索（主要用来搜索一些函数定义等），把包含输入的定义输出出来，例如在Definition中输入allLowerCaseAscii，结果如下
 
-Symbol为符号搜索，主要用来搜索一下成员变量等
-File Path为路径搜索，用来搜索包含指定为字符串的路径
-基本搜索以上输入框中，都存在一些搜索技巧
-+ 表示包含指定字符串内容
-- 表示不包含指定字符串的内容
-AND(&amp;&amp;...
+
+参数
+解释
+
+
+
+-d
+指定分割符号
+
+
+-f
+选择字段
+
+
+-c
+以字符为单位取出固定的字符区间
+
+
+-b
+以字节为单位取出固定的字节区间
+
+
+–complement
+反选我们的设定
+
+
+演示：
+指定分割符号，并且执行显示的段
+123456[root@VM-8-14-centos test]# cat /etc/passwd | cut...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/07</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/05</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "tool">tool</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "format">format</a>
     
 </div>
             

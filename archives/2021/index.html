@@ -354,6 +354,69 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2021/02/05/linux%E6%8C%87%E4%BB%A4-cut/" >
+            
+                <span>linux指令-cut</span>
+        </a>
+        <div class="abstract-content">
+            linux指令-cutlinux中cut命令是常用的文本处理命令之一，通常用来截取字符，将字符切片处理，它的处理单元为一行，也就是一行一行的进行处理，最后得到我们想要的结果
+命令格式：
+1cut OPTION... [FILE]...
+参数信息：
+
+
+
+参数
+解释
+
+
+
+-d
+指定分割符号
+
+
+-f
+选择字段
+
+
+-c
+以字符为单位取出固定的字符区间
+
+
+-b
+以字节为单位取出固定的字节区间
+
+
+–complement
+反选我们的设定
+
+
+演示：
+指定分割符号，并且执行显示的段
+123456[root@VM-8-14-centos test]# cat /etc/passwd | cut...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/05</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "format">format</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2021/02/03/Vim%E8%AE%BE%E7%BD%AEtab%E7%BC%A9%E8%BF%9B%E7%9A%84%E6%95%B0%E9%87%8F/" >
             
                 <span>Vim设置tab缩进的数量</span>
@@ -647,51 +710,10 @@ MainActivity
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/25/Android-Activity%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" >
-            
-                <span>Android-Activity的生命周期</span>
-        </a>
-        <div class="abstract-content">
-            Android-Activity的生命周期Activity的生命周期主要有如下几个
-
-onCreate
-onRestart
-onStart
-onResume
-onPause
-onStop
-onDestroy
-
-onCreate主要在Activity创建的时候执行
-onRestart在返回Activity前台时候执行，例如使用home键挂在后台，然后再次打开前台，就会执行onRestart，或者在一个Activity中打开了另一个Activity，再次返回这个Activity时，也会执行onRestart
-onStart执行在onCreate之后或者onRestart之后，此时前台可见但是...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/2021/page/2/">2</a><a class="extend next" rel="next" href="/archives/2021/page/2/">NEXT &gt;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/archives/2021/page/2/">2</a><a class="page-number" href="/archives/2021/page/3/">3</a><a class="extend next" rel="next" href="/archives/2021/page/2/">NEXT &gt;</a>
     </nav>
     
 </main>
@@ -1076,9 +1098,24 @@ onStart执行在onCreate之后或者onRestart之后，此时前台可见但是..
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 23
+        Total : 24
         </div>
         <!-- search  -->
         
@@ -1091,6 +1128,11 @@ onStart执行在onCreate之后或者onRestart之后，此时前台可见但是..
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/05</span><a class="archive-post-title" href= "/2021/02/05/linux%E6%8C%87%E4%BB%A4-cut/" >linux指令-cut</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1241,6 +1283,8 @@ onStart执行在onCreate之后或者onRestart之后，此时前台可见但是..
     
         <span class="sidebar-tag-name" data-tags="Vim"><span class="iconfont-archer">&#xe606;</span>Vim</span>
     
+        <span class="sidebar-tag-name" data-tags="format"><span class="iconfont-archer">&#xe606;</span>format</span>
+    
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -1287,6 +1331,8 @@ jsonContent:
         <span class="sidebar-category-name" data-categories="Android"><span class="iconfont-archer">&#xe60a;</span>Android</span>
     
         <span class="sidebar-category-name" data-categories="操作系统"><span class="iconfont-archer">&#xe60a;</span>操作系统</span>
+    
+        <span class="sidebar-category-name" data-categories="linux"><span class="iconfont-archer">&#xe60a;</span>linux</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
