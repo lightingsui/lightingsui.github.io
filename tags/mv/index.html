@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="sui">
-<meta property="og:url" content="http://example.com/tags/Service/index.html">
+<meta property="og:url" content="http://example.com/tags/mv/index.html">
 <meta property="og:site_name" content="sui">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="sui">
@@ -354,29 +354,49 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2021/02/01/Android-Service-onStartCommand%E8%AF%A6%E8%A7%A3/" >
+        <a class="abstract-title" href = "/2021/02/18/linux%E6%8C%87%E4%BB%A4-mv-%E9%99%84%E5%B8%A6%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E4%BB%A5%E5%8F%8A%E7%9B%AE%E5%BD%95%E5%90%8D%E7%A7%B0/" >
             
-                <span>Android-Service-onStartCommand详解</span>
+                <span>linux指令-mv-附带获取路径的文件名以及目录名称</span>
         </a>
         <div class="abstract-content">
-            Android-Service(onStartCommand详解)在上一篇我们总结了Android中的Service，接下来这篇就围绕着其中的一个生命周期方法onStartCommand()进行总结。
-之前Service中的onStart()方法已经被废弃了，取而代之的是onStartCommand()方法，该方法有三个参数
-1public int onStartCommand(Intent intent, int flags, int startId)
+            linux指令-mv-附带获取路径的文件名以及目录名称mv指令的作用在于移动文件或目录，以及改名操作
+命令格式：
+123mv [OPTION]... [-T] SOURCE DESTmv [OPTION]... SOURCE... DIRECTORYmv [OPTION]... -t DIRECTORY SOURCE...
+参数：
 
-第一个参数是启动过来的Intent信息，也就是调用者的Intent信息
-第二个参数flags代表着启动请求的附加参数，由系统传入
-通...
+
+
+参数
+解释
+
+
+
+-f
+强制执行，目标文件已经存在，也不会进行提示
+
+
+-i
+交互式进行，目标文件已经存在则会提示是否覆盖
+
+
+-u
+只有源文件比目标文件新时才会更新
+
+
+演示：
+将一个文件启动到其他文件夹中
+1234567[root@VM-8-14-c...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/01</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/18</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Service">Service</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "mv">mv</a>
     
 </div>
             
