@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="sui">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/tags/shell/index.html">
 <meta property="og:site_name" content="sui">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="sui">
@@ -85,6 +85,8 @@
 
     <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -209,10 +211,8 @@
 <meta name="generator" content="Hexo 5.3.0"></head>
 
     
-        <body class="home-body">
     
-    
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -228,34 +228,21 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 文章页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/assets/site_header.jfif)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Sui
-            <!-- 文章页  -->
-            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
-            
-            
-                A programmer who loves life
-            
-            <!-- 文章页  -->
             
         </p>
         <!-- 文章页meta -->
@@ -398,514 +385,10 @@ height:50vh;
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/02/18/linux%E6%8C%87%E4%BB%A4-rm/" >
-            
-                <span>linux指令-rm</span>
-        </a>
-        <div class="abstract-content">
-            linux指令-rmrm指令通常用来删除文件或者目录，使用它删除文件或者目录，那么一切就没有了，世界就安静了，所以执行删除命令的时候一定要小心，否则会一失足成千古恨的。
-命令格式：
-1rm [OPTION]... [FILE]...
-参数：
-
-
-
-参数
-解释
-
-
-
--f
-强制删除，不会再出现确认删除信息
-
-
--i
-互动模式，在删除时会再次询问是否删除
-
-
--r
-递归删除，即可以删除目录
-
-
-演示：
-删除一个普通的文件
-12[root@VM-8-14-centos test]# rm aaaarm：是否删除普通文件 &quot;aaaa&quot;？y
-当真正的执行删除的操作时，会提示是否...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "rm">rm</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/02/05/linux%E6%8C%87%E4%BB%A4-cp/" >
-            
-                <span>linux指令-cp</span>
-        </a>
-        <div class="abstract-content">
-            linux指令-cpcp指令我们一般用来进行文件的复制，全称为 copy files and directories。但是，不同的身份执行这个命令会得到不同的结果。
-命令格式：
-123cp [OPTION]... [-T] SOURCE DESTcp [OPTION]... SOURCE... DIRECTORYcp [OPTION]... -t DIRECTORY SOURCE...
-参数：
-
-
-
-参数
-解释
-
-
-
--a
-相当于-dr
-
-
--d
-若复制的文件为软链接文件，则会复制软链接所指的文件，而非软链接本身
-
-
--f
-强制执行
-
-
--i
-若目标文件存在，则询问是否覆盖
-
-
--l
-对...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/05</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "cp">cp</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/02/05/linux%E6%8C%87%E4%BB%A4-ls/" >
-            
-                <span>linux指令-ls</span>
-        </a>
-        <div class="abstract-content">
-            linux指令-lsls命令全称为list directory contents，是linux中最最重要的命令之一，通常用来查看目录下的文件，也算是linux入门指令了吧
-命令格式：
-1ls [OPTION]... [FILE]...
-参数信息：
-
-
-
-参数
-解释
-
-
-
--a
-列出全部的信息，包括“.”和”..”
-
-
--A
-列出全部信息，不包括“.”和”..”
-
-
--C
-按列列出条目
-
-
--d
-列出目录本身，包括目录中的内容
-
-
--f
-直接列出结果，不排序
-
-
--F
-在列出内容的末尾加上了标识，/ 代表目录，= 代表socket文件 l 代表FIFO文件，普通文件不标识
-
-
--h
-以人类...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/05</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ls">ls</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/02/05/linux%E6%8C%87%E4%BB%A4-cut/" >
-            
-                <span>linux指令-cut</span>
-        </a>
-        <div class="abstract-content">
-            linux指令-cutlinux中cut命令是常用的文本处理命令之一，通常用来截取字符，将字符切片处理，它的处理单元为一行，也就是一行一行的进行处理，最后得到我们想要的结果
-命令格式：
-1cut OPTION... [FILE]...
-参数信息：
-
-
-
-参数
-解释
-
-
-
--d
-指定分割符号
-
-
--f
-选择字段
-
-
--c
-以字符为单位取出固定的字符区间
-
-
--b
-以字节为单位取出固定的字节区间
-
-
-–complement
-反选我们的设定
-
-
-演示：
-指定分割符号，并且执行显示的段
-123456[root@VM-8-14-centos test]# cat /etc/passwd | cut...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/05</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "format">format</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/02/03/Vim%E8%AE%BE%E7%BD%AEtab%E7%BC%A9%E8%BF%9B%E7%9A%84%E6%95%B0%E9%87%8F/" >
-            
-                <span>Vim设置tab缩进的数量</span>
-        </a>
-        <div class="abstract-content">
-            Vim设置tab缩进的数量vim编辑器默认tab缩进8个空格，需要我们手动修改为缩进4个空格
-在redhat下，vim配置文件在/etc/vimrc，ubuntu下，配置文件在/etc/vim/vimrc，
-找到配置文件，在配置文件的末尾加上set tabstop=4
-重新启动vim，再次使用tab即缩进4个空格
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Vim">Vim</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/02/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8BAPI/" >
-            
-                <span>操作系统-CPU虚拟化-进程API</span>
-        </a>
-        <div class="abstract-content">
-            操作系统-CPU虚拟化-进程API上一节的操作系统中我们对进程进行了一个概述，这一篇中我们就围绕着进程的API进行一个总结
-fork系统调用系统调用fork()用于创建新的进程，它创建一次，返回两次，在父进程中，返回大于0的数为子进程的pid，返回小于0的数代表着创建失败（此时系统中的进程数已达规定的最大进程数），在子进程中返回0代表着创建成功。下面通过一个例子认识一下
-123456789101112131415161718192021#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#include &lt;unistd.h&gt;int...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "虚拟化CPU">虚拟化CPU</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/02/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8B%E6%A6%82%E8%BF%B0/" >
-            
-                <span>操作系统-CPU虚拟化-进程概述</span>
-        </a>
-        <div class="abstract-content">
-            操作系统-CPU虚拟化-进程概述目前，大多数人对进程的概念就是一个运行的程序，这个讲法从广义上来说是正确的。一个运行的进程无非就是频繁的从内存中取指令，然后执行，往复循环，直到执行完程序，最后关闭进程。
-我们想让CPU一次执行多个程序，就需要让许多进程共享一个CPU，这就是时分共享技术，通过时分共享技术，每个进程执行一个CPU的时间片，当时间片到了，进行上下文切换，然后CPU执行其他的进程，但是这样做会损失一些性能，频繁的进行上下文切换必定会损失CPU的效率。
-
-所谓的时分共享技术就是将CPU的时间进行划分，第一个时间片执行A进程，A进程的时间片结束，将执行CPU的第二个时间片，这样CP...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/02</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "虚拟化CPU">虚拟化CPU</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/02/01/Android-Service-onStartCommand%E8%AF%A6%E8%A7%A3/" >
-            
-                <span>Android-Service-onStartCommand详解</span>
-        </a>
-        <div class="abstract-content">
-            Android-Service(onStartCommand详解)在上一篇我们总结了Android中的Service，接下来这篇就围绕着其中的一个生命周期方法onStartCommand()进行总结。
-之前Service中的onStart()方法已经被废弃了，取而代之的是onStartCommand()方法，该方法有三个参数
-1public int onStartCommand(Intent intent, int flags, int startId)
-
-第一个参数是启动过来的Intent信息，也就是调用者的Intent信息
-第二个参数flags代表着启动请求的附加参数，由系统传入
-通...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Service">Service</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/01/28/Android%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB/" >
-            
-                <span>Android进程保活</span>
-        </a>
-        <div class="abstract-content">
-            Android进程保活目前的app都想自己一直被运行，不想被杀死，从而来获取用户的信息，了解用户的互联网习性。
-国内在这一点就做的很到位，每个app几乎都做了保活处理，尤其是类似qq、微信IM类的软件，他们要保证及时的提醒用户有新消息到来，所以不能被杀死。目前国内的手机也针对这样进程保活做了一些反应对处理，他们加入了禁止自启动的机制等，来控制app的权限。同时也设有白名单，白名单中的app会被放松权限，做到自启动。所以要想做到app完全的保活，就需要和国内的手机厂商进行交涉，将我们的app放入白名单中，但是这可不是那么容易的，和大厂谈判是需要资本的，一些小的app厂商是没有资格谈判的。
-...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/01/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">NEXT &gt;</a>
-    </nav>
     
 </main>
             <!-- profile -->
-            
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src= /assets/head.jpg >
-    <div class="profile-name">Sui</div>
-    
-    <div class="profile-signature">
-        make it better
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
-            
-                <a href="mailto:coolsui@126.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/lightingsui" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-            
-                <span class="iconfont-archer wechat" title=wechat>
-                  
-                  <img class="profile-qr" src="/assets/example_qr.png" />
-                </span>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href= //androidperformance.com/ target="_black">Tech</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= //www.ruanyifeng.com/blog/ target="_black">ruanyifeng</a>
-                    </span>
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
             
         </div>
         <footer class="footer footer-unloaded">
