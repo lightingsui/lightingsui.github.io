@@ -354,6 +354,38 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2021/02/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8B%E6%A6%82%E8%BF%B0/" >
+            
+                <span>操作系统-CPU虚拟化-进程概述</span>
+        </a>
+        <div class="abstract-content">
+            操作系统-CPU虚拟化-进程概述目前，大多数人对进程的概念就是一个运行的程序，这个讲法从广义上来说是正确的。一个运行的进程无非就是频繁的从内存中取指令，然后执行，往复循环，直到执行完程序，最后关闭进程。
+我们想让CPU一次执行多个程序，就需要让许多进程共享一个CPU，这就是时分共享技术，通过时分共享技术，每个进程执行一个CPU的时间片，当时间片到了，进行上下文切换，然后CPU执行其他的进程，但是这样做会损失一些性能，频繁的进行上下文切换必定会损失CPU的效率。
+
+所谓的时分共享技术就是将CPU的时间进行划分，第一个时间片执行A进程，A进程的时间片结束，将执行CPU的第二个时间片，这样CP...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/02</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "虚拟化CPU">虚拟化CPU</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2021/02/01/Android-Service-onStartCommand%E8%AF%A6%E8%A7%A3/" >
             
                 <span>Android-Service-onStartCommand详解</span>
@@ -876,9 +908,24 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 30
+        Total : 31
         </div>
         <!-- search  -->
         
@@ -891,6 +938,11 @@
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/19</span><a class="archive-post-title" href= "/2021/02/19/linux%E6%8C%87%E4%BB%A4-nl/" >linux指令-nl</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1089,6 +1141,8 @@
         <span class="sidebar-tag-name" data-tags="mv"><span class="iconfont-archer">&#xe606;</span>mv</span>
     
         <span class="sidebar-tag-name" data-tags="cat-tac"><span class="iconfont-archer">&#xe606;</span>cat-tac</span>
+    
+        <span class="sidebar-tag-name" data-tags="nl"><span class="iconfont-archer">&#xe606;</span>nl</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

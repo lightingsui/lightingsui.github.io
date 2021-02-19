@@ -354,6 +354,73 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2021/02/19/linux%E6%8C%87%E4%BB%A4-nl/" >
+            
+                <span>linux指令-nl</span>
+        </a>
+        <div class="abstract-content">
+            linux指令-nlnl可以将输出的文件内容自动加上行号，并且可以将行号做比较多的显示设计，包括位数与是否自动补齐0等等功能
+命令格式：
+1nl [OPTION]... [FILE]...
+参数：
+
+
+
+参数
+解释
+
+
+
+-b a
+对空行同样列出行号
+
+
+-b t
+对空行不列出行号
+
+
+-n ln
+行号在自己字段的左侧显示
+
+
+-n rn
+行号在自己字段的右侧显示，且不自动加0
+
+
+-n rz
+行号在自己字段到的右侧显示，且自动补0
+
+
+-w
+指定行号占用的字节数
+
+
+演示：
+-b a与-b t的区别
+1234567[root@VM-8-14-centos blog]# nl -b a ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "nl">nl</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2021/02/19/linux%E6%8C%87%E4%BB%A4-cat-tac/" >
             
                 <span>linux指令-cat-tac</span>
@@ -1202,9 +1269,24 @@ cat参数
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 30
+        Total : 31
         </div>
         <!-- search  -->
         
@@ -1217,6 +1299,11 @@ cat参数
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/19</span><a class="archive-post-title" href= "/2021/02/19/linux%E6%8C%87%E4%BB%A4-nl/" >linux指令-nl</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1415,6 +1502,8 @@ cat参数
         <span class="sidebar-tag-name" data-tags="mv"><span class="iconfont-archer">&#xe606;</span>mv</span>
     
         <span class="sidebar-tag-name" data-tags="cat-tac"><span class="iconfont-archer">&#xe606;</span>cat-tac</span>
+    
+        <span class="sidebar-tag-name" data-tags="nl"><span class="iconfont-archer">&#xe606;</span>nl</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
