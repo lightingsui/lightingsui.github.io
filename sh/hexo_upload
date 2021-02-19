@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+cd /opt/blog
+
+if [[ ! -n $1 ]] 
+then
+	echo "must provide article name"
+	exit
+fi
+
+# new hexo page
+hexo new $1
+
+cd "/opt/blog/source/_posts"
+
+vim "$1.md"
+
+sleep 1
+
+echo "write success"
+
+# upload new to github
+hexo g
+
+# run expect script 
+/opt/blog/sh/upload

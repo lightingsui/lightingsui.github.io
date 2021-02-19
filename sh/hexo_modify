@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+base_path="/opt/blog/source/_posts"
+
+cd $base_path
+
+with_parameter=false
+
+echo $1
+
+if [ -n $1 ] && [ $1 == "-a" ]
+then
+	with_parameter=true
+	shift
+fi 
+
+echo $1
+
+if [ ! -n $1 ]
+then 
+	echo "The name of the file to be modified should be provided"
+	exit 1
+else
+	vim "$1.md"
+fi
+	
+
+sleep 1
+echo "modify succefully"
+
+hexo g
+
+if [ ${with_parameter} == true ]
+then
+	/opt/blog/sh/upload
+fi

@@ -4,7 +4,7 @@ date: 2020-12-30 21:26:33
 tags: Linux
 categories: Linux
 ---
-# grep命令
+# linux指令-grep
 
 grep命令，全称（Global Regular Expression Print，表示全局正则表达式版本），用来做文本匹配十分厉害，堪称神器。
 
@@ -44,7 +44,7 @@ n
 | -B \<count> | 除了显示匹配到的内容，还显示他之前的几行内容                 | 无                                                           |
 | -c          | 计算符合样式的行数                                           | ![](https://raw.githubusercontent.com/lightingsui/Pic/master/img/20201228160924.png) |
 | -C \<count> | 把-B和-A整合了                                               | ![](https://raw.githubusercontent.com/lightingsui/Pic/master/img/20201228161104.png) |
-| -f file     | 从文件中读取要匹配的文本                                     | ![image-20201228161951704](C:\Users\sui\AppData\Roaming\Typora\typora-user-images\image-20201228161951704.png) |
+| -f file     | 从文件中读取要匹配的文本                                     | ![](https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210202144819.png) |
 | -n          | 显示匹配到的文本行号                                         | ![](https://raw.githubusercontent.com/lightingsui/Pic/master/img/20201228162136.png) |
 | 无          | 从多个文件中查找                                             | ![](https://raw.githubusercontent.com/lightingsui/Pic/master/img/20201228162308.png) |
 | -i          | 忽略大小写                                                   | ![](https://raw.githubusercontent.com/lightingsui/Pic/master/img/20201228162431.png) |
@@ -53,6 +53,18 @@ n
 | -l          | 只显示匹配到的文件名，不显示匹配到的内容                     |                                                              |
 | -s          | 不显示关于不存在或者无法读取文件的错误信息                   |                                                              |
 | -q          | 禁止输出任何匹配结果，而是以退出码的形式表示搜索是否成功，其中0表示找到了匹配的文本行（与echo $? 连用） |                                                              |
+| -r          | 递归查找当前文件夹                                           |                                                              |
+
+```bash
+# 递归查找当前文件夹以及子文件夹下包含pattern的文件
+grep -r pattern *
+
+# 查找当前文件夹下包含pattern的文件
+grep pattern *
+
+# 递归查找当前文件夹下包含pattern的文件名
+grep -r -l pattern *
+```
 
 
 

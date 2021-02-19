@@ -4,7 +4,7 @@ date: 2020-12-30 21:20:42
 tags: Linux
 categories: Linux
 ---
-# find 命令
+# linux指令-find
 
 find命令主要用于文件搜索，那是相当的快呀。
 

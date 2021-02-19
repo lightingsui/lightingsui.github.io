@@ -1,0 +1,22 @@
+#!/usr/bin/expect -f
+
+
+cd /opt/blog
+
+set user_name "lightingsui"
+set passwd "Aa13404420573"
+set timeout -1
+
+spawn hexo g
+
+spawn hexo d
+
+expect "https://github.com"
+send "$user_name\r"
+
+expect "https://lightingsui@github.com"
+send "$passwd\r"
+
+# echo -e "\033[32m, upload completed! \033[0m"
+# echo "upload completed!"
+interact
