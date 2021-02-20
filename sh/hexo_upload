@@ -26,11 +26,11 @@ vim "$1.md"
 sleep 1
 echo "Write successfully"
 
+# upload new to github
+hexo g
+
 if [ ${witt_parameter} == true ]
 then
-	# upload new to github
-	hexo g
-
 	# run expect script
 	/opt/blog/sh/upload
 fi

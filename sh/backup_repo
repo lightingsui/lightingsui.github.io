@@ -10,4 +10,4 @@ git add .
 
 git commit -m "$1"
 
-/opt/blog/sh/upload
+/opt/blog/sh/backup_git
