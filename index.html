@@ -367,6 +367,43 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2021/02/20/linux%E6%8C%87%E4%BB%A4-touch/" >
+            
+                <span>linux指令-touch</span>
+        </a>
+        <div class="abstract-content">
+            linux指令-touchtouch指令用于创建一个空文件，以及用来修改文件的atime、mtime
+在介绍touch指令之前，需要澄清三个概念，linux文件系统中的时间。
+在linux文件系统中，每个文件或目录都有三个时间，关于这三个时间的查看，可以使用stat命令或者ls -time=&#123;atime, ctime, mtime&#125;查看
+
+最后的访问时间（atime，access time）
+最后的修改时间（mtime，modification time）
+最后的改变时间（ctime，status time）
+
+atime好理解，atime例如我们查看文件内容的时候，...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/20</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "touch">touch</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2021/02/19/linux%E6%8C%87%E4%BB%A4-nl/" >
             
                 <span>linux指令-nl</span>
@@ -857,37 +894,6 @@ cat参数
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Vim">Vim</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2021/02/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-CPU%E8%99%9A%E6%8B%9F%E5%8C%96-%E8%BF%9B%E7%A8%8BAPI/" >
-            
-                <span>操作系统-CPU虚拟化-进程API</span>
-        </a>
-        <div class="abstract-content">
-            操作系统-CPU虚拟化-进程API上一节的操作系统中我们对进程进行了一个概述，这一篇中我们就围绕着进程的API进行一个总结
-fork系统调用系统调用fork()用于创建新的进程，它创建一次，返回两次，在父进程中，返回大于0的数为子进程的pid，返回小于0的数代表着创建失败（此时系统中的进程数已达规定的最大进程数），在子进程中返回0代表着创建成功。下面通过一个例子认识一下
-123456789101112131415161718192021#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#include &lt;unistd.h&gt;int...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/02/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "虚拟化CPU">虚拟化CPU</a>
     
 </div>
             
@@ -1497,9 +1503,24 @@ fork系统调用系统调用fork()用于创建新的进程，它创建一次，�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 31
+        Total : 32
         </div>
         <!-- search  -->
         
@@ -1512,6 +1533,11 @@ fork系统调用系统调用fork()用于创建新的进程，它创建一次，�
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/20</span><a class="archive-post-title" href= "/2021/02/20/linux%E6%8C%87%E4%BB%A4-touch/" >linux指令-touch</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1717,6 +1743,8 @@ fork系统调用系统调用fork()用于创建新的进程，它创建一次，�
         <span class="sidebar-tag-name" data-tags="cat-tac"><span class="iconfont-archer">&#xe606;</span>cat-tac</span>
     
         <span class="sidebar-tag-name" data-tags="nl"><span class="iconfont-archer">&#xe606;</span>nl</span>
+    
+        <span class="sidebar-tag-name" data-tags="touch"><span class="iconfont-archer">&#xe606;</span>touch</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
