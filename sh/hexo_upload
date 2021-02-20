@@ -2,10 +2,18 @@
 
 cd /opt/blog
 
+with_parameter=false
+
+if [ -n $1 ] && [ $1 == "-a" ]
+then
+    with_parameter=true
+    shift
+fi
+
 if [[ ! -n $1 ]] 
 then
 	echo "must provide article name"
-	exit
+	exit 1
 fi
 
 # new hexo page
@@ -16,11 +24,13 @@ cd "/opt/blog/source/_posts"
 vim "$1.md"
 
 sleep 1
+echo "Write successfully"
 
-echo "write success"
+if [ ${witt_parameter} == true ]
+then
+	# upload new to github
+	hexo g
 
-# upload new to github
-hexo g
-
-# run expect script 
-/opt/blog/sh/upload
+	# run expect script
+	/opt/blog/sh/upload
+fi

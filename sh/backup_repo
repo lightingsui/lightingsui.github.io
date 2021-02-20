@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ ! -n $1 ]]
+then
+	echo "Submission information cannot be empty"
+	exit 1
+fi
+
+git add .
+
+git commit -m "$1"
+
+/opt/blog/sh/upload
