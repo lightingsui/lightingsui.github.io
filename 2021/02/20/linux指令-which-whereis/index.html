@@ -20,24 +20,22 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="sublime的package control 如果找不到package control。可以到tools选项卡下，找到install package control，一般在tools选项卡的最后，然后安装即可（安装成功如上图）。 接下来找到package control">
+    <meta name="description" content="linux指令-which-whereiswhichwhich指令用来搜索其他指令的详细位置，他搜索的路径是PATH环境变量中的的一系列路径 命令格式： 1which [options] [--] programname [...] 参数：    参数 解释    -a 将PATH下的搜索到的所有结果全部列出来   演示： 搜索ls所在的位置 123[sui@VM-8-14-centos ~]$">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sublime-package-control">
-<meta property="og:url" content="http://example.com/2021/01/09/sublime-package-control/index.html">
+<meta property="og:title" content="linux指令-which-whereis">
+<meta property="og:url" content="http://example.com/2021/02/20/linux%E6%8C%87%E4%BB%A4-which-whereis/index.html">
 <meta property="og:site_name" content="sui">
-<meta property="og:description" content="sublime的package control 如果找不到package control。可以到tools选项卡下，找到install package control，一般在tools选项卡的最后，然后安装即可（安装成功如上图）。 接下来找到package control">
+<meta property="og:description" content="linux指令-which-whereiswhichwhich指令用来搜索其他指令的详细位置，他搜索的路径是PATH环境变量中的的一系列路径 命令格式： 1which [options] [--] programname [...] 参数：    参数 解释    -a 将PATH下的搜索到的所有结果全部列出来   演示： 搜索ls所在的位置 123[sui@VM-8-14-centos ~]$">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210109230426.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210109230821.png">
-<meta property="article:published_time" content="2021-01-09T15:25:22.000Z">
-<meta property="article:modified_time" content="2021-01-09T15:29:24.819Z">
+<meta property="article:published_time" content="2021-02-20T07:46:14.000Z">
+<meta property="article:modified_time" content="2021-02-20T07:46:43.414Z">
 <meta property="article:author" content="sui">
+<meta property="article:tag" content="search">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210109230426.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
-    <title>sublime-package-control · Sui</title>
+    <title>linux指令-which-whereis · Sui</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -232,7 +230,7 @@
                 <a href="/" >Sui</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">sublime-package-control</a>
+                <a href="#" class="post-name">linux指令-which-whereis</a>
             </div>
     </div>
     
@@ -262,7 +260,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            sublime-package-control
+            linux指令-which-whereis
             <!-- 404 -->
             
         </h1>
@@ -279,14 +277,20 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "search">search</a>
+    
+</div>
+                
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">53</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">569</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2021/01/09</span>
+                    <span class="post-intro-time">2021/02/20</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -410,19 +414,81 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="sublime的package-control"><a href="#sublime的package-control" class="headerlink" title="sublime的package control"></a>sublime的package control</h1><p><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210109230426.png"></p>
-<p>如果找不到package control。可以到tools选项卡下，找到install package control，一般在tools选项卡的最后，然后安装即可（安装成功如上图）。</p>
-<p>接下来找到package control</p>
-<p><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210109230821.png"></p>
+        <h1 id="linux指令-which-whereis"><a href="#linux指令-which-whereis" class="headerlink" title="linux指令-which-whereis"></a>linux指令-which-whereis</h1><h2 id="which"><a href="#which" class="headerlink" title="which"></a>which</h2><p>which指令用来搜索其他指令的详细位置，他搜索的路径是PATH环境变量中的的一系列路径</p>
+<p><strong>命令格式：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> [options] [--] programname [...]</span><br></pre></td></tr></table></figure>
+<p><strong>参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>将PATH下的搜索到的所有结果全部列出来</td>
+</tr>
+</tbody></table>
+<p><strong>演示：</strong></p>
+<p>搜索ls所在的位置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[sui@VM-8-14-centos ~]$ <span class="built_in">which</span> ls</span><br><span class="line"><span class="built_in">alias</span> ls=<span class="string">&#x27;ls --color=auto&#x27;</span></span><br><span class="line">        /bin/ls</span><br></pre></td></tr></table></figure>
+<p>可以看到出现了一个alias，这个是别名代表输入ls则等同于输入了后面的一串</p>
+<p>可以使用-a选项，列出ls的所有位置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[sui@VM-8-14-centos ~]$ <span class="built_in">which</span> -a ls</span><br><span class="line"><span class="built_in">alias</span> ls=<span class="string">&#x27;ls --color=auto&#x27;</span></span><br><span class="line">        /bin/ls</span><br><span class="line">        /usr/bin/ls</span><br></pre></td></tr></table></figure>
+<p>最后再来看一个特殊的例子</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[sui@VM-8-14-centos ~]$ <span class="built_in">which</span> <span class="built_in">history</span></span><br><span class="line">/usr/bin/<span class="built_in">which</span>: no <span class="built_in">history</span> <span class="keyword">in</span> (/usr/<span class="built_in">local</span>/bin:/bin:/usr/bin:/usr/<span class="built_in">local</span>/sbin:/usr/sbin:/home/sui/.<span class="built_in">local</span>/bin:/home/sui/bin)</span><br></pre></td></tr></table></figure>
+<p>当搜索history命令时，找不到history命令的位置，由于history是shell的内置命令（可以使用type查看命令的类型），并不在PATH当中，因此无法搜索到</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[sui@VM-8-14-centos ~]$ <span class="built_in">type</span> <span class="built_in">history</span></span><br><span class="line"><span class="built_in">history</span> 是 shell 内嵌</span><br><span class="line">[sui@VM-8-14-centos ~]$ <span class="built_in">type</span> locate</span><br><span class="line">locate 已被哈希 (/bin/locate)</span><br></pre></td></tr></table></figure>
+<h2 id="whereis"><a href="#whereis" class="headerlink" title="whereis"></a>whereis</h2><p>whereis会到几个特定的目录下去查找包含输入的命令位置，一般情况下，我们查找内容时都会先使用whereis或者locate，当查找不到的时候，再使用find命令去查找</p>
+<p><strong>命令格式：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whereis [options] [-BMS directory... -f] name...</span><br></pre></td></tr></table></figure>
+<p><strong>参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-l</td>
+<td>列出where去搜索的所有目录</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>只找二进制文件</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>只找说明文件man路径下的文件</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>只找src下的文件</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>搜索不在上述三个特定路径下的文件</td>
+</tr>
+</tbody></table>
+<p><strong>演示：</strong></p>
+<p>查找ls所在的所有位置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[sui@VM-8-14-centos ~]$ whereis ls</span><br><span class="line">ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz</span><br></pre></td></tr></table></figure>
+<p>查找ls二进制可执行文件的位置以及man帮助文档的位置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[sui@VM-8-14-centos ~]$ whereis -b ls</span><br><span class="line">ls: /usr/bin/ls</span><br><span class="line">[sui@VM-8-14-centos ~]$ whereis -m ls</span><br><span class="line">ls: /usr/share/man/man1/ls.1.gz</span><br></pre></td></tr></table></figure>
+<p>列出whereis都在哪些目录下查找内容，由于内容过多，只展示部分路径</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[sui@VM-8-14-centos ~]$ whereis -l</span><br><span class="line">bin: /usr/bin</span><br><span class="line">bin: /usr/sbin</span><br><span class="line">bin: /usr/lib</span><br><span class="line">bin: /usr/lib64</span><br><span class="line">bin: /etc</span><br><span class="line">bin: /usr/etc</span><br><span class="line">bin: /usr/games</span><br><span class="line">bin: /usr/<span class="built_in">local</span>/bin</span><br><span class="line">bin: /usr/<span class="built_in">local</span>/sbin</span><br><span class="line">bin: /usr/<span class="built_in">local</span>/etc</span><br><span class="line">bin: /usr/<span class="built_in">local</span>/lib</span><br><span class="line">bin: /usr/<span class="built_in">local</span>/games</span><br><span class="line">bin: /usr/include</span><br><span class="line"><span class="comment"># 以下部分省略</span></span><br></pre></td></tr></table></figure>
+
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://example.com">sui</a>
-            <p>原文链接：<a href="http://example.com/2021/01/09/sublime-package-control/">http://example.com/2021/01/09/sublime-package-control/</a>
-            <p>发表日期：<a href="http://example.com/2021/01/09/sublime-package-control/">January 9th 2021, 11:25:22 pm</a>
-            <p>更新日期：<a href="http://example.com/2021/01/09/sublime-package-control/">January 9th 2021, 11:29:24 pm</a>
+            <p>原文链接：<a href="http://example.com/2021/02/20/linux%E6%8C%87%E4%BB%A4-which-whereis/">http://example.com/2021/02/20/linux%E6%8C%87%E4%BB%A4-which-whereis/</a>
+            <p>发表日期：<a href="http://example.com/2021/02/20/linux%E6%8C%87%E4%BB%A4-which-whereis/">February 20th 2021, 3:46:14 pm</a>
+            <p>更新日期：<a href="http://example.com/2021/02/20/linux%E6%8C%87%E4%BB%A4-which-whereis/">February 20th 2021, 3:46:43 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -430,17 +496,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2021/01/12/typora%E4%BF%AE%E6%94%B9%E5%BF%AB%E6%8D%B7%E9%94%AE/" title= "typora修改快捷键">
-                    <div class="nextTitle">typora修改快捷键</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2021/01/09/sublime%E8%AE%BE%E7%BD%AEGBK%E7%BC%96%E7%A0%81/" title= "sublime设置GBK编码">
-                    <div class="prevTitle">sublime设置GBK编码</div>
+                <a href= "/2021/02/20/linux%E6%8C%87%E4%BB%A4-touch/" title= "linux指令-touch">
+                    <div class="prevTitle">linux指令-touch</div>
                 </a>
             
         </li>
@@ -563,7 +624,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sublime%E7%9A%84package-control"><span class="toc-number">1.</span> <span class="toc-text">sublime的package control</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux%E6%8C%87%E4%BB%A4-which-whereis"><span class="toc-number">1.</span> <span class="toc-text">linux指令-which-whereis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#which"><span class="toc-number">1.1.</span> <span class="toc-text">which</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#whereis"><span class="toc-number">1.2.</span> <span class="toc-text">whereis</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
