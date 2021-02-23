@@ -20,22 +20,25 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="linux指令-cutlinux中cut命令是常用的文本处理命令之一，通常用来截取字符，将字符切片处理，它的处理单元为一行，也就是一行一行的进行处理，最后得到我们想要的结果 命令格式： 1cut OPTION... [FILE]... 参数信息：    参数 解释    -d 指定分割符号   -f 选择字段   -c 以字符为单位取出固定的字符区间   -b 以字节为单位取出固定的字节区间">
+    <meta name="description" content="设计模式-装饰者模式在JDK中，使用到了很多设计模式，例如装饰者模式、观察者模式，它广泛存在于Java I&#x2F;O中，说实话，刚学习Java I&#x2F;O时有点懵，他的类是在太多了，可供选择的就十多种，还有很多叫不上名字的IO类，当时一度怀疑自己不是学编程的选手。 今天重点所说的就是装饰者模式，也算是一个总结吧 场景这个场景很简单，为某冷饮店制造一个收费系统。 他的业务是这样的，主要的为饮品收费，其他的收费">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux指令-cut">
-<meta property="og:url" content="http://example.com/2021/02/05/linux%E6%8C%87%E4%BB%A4-cut/index.html">
+<meta property="og:title" content="设计模式-装饰者模式">
+<meta property="og:url" content="http://example.com/2021/02/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="sui">
-<meta property="og:description" content="linux指令-cutlinux中cut命令是常用的文本处理命令之一，通常用来截取字符，将字符切片处理，它的处理单元为一行，也就是一行一行的进行处理，最后得到我们想要的结果 命令格式： 1cut OPTION... [FILE]... 参数信息：    参数 解释    -d 指定分割符号   -f 选择字段   -c 以字符为单位取出固定的字符区间   -b 以字节为单位取出固定的字节区间">
+<meta property="og:description" content="设计模式-装饰者模式在JDK中，使用到了很多设计模式，例如装饰者模式、观察者模式，它广泛存在于Java I&#x2F;O中，说实话，刚学习Java I&#x2F;O时有点懵，他的类是在太多了，可供选择的就十多种，还有很多叫不上名字的IO类，当时一度怀疑自己不是学编程的选手。 今天重点所说的就是装饰者模式，也算是一个总结吧 场景这个场景很简单，为某冷饮店制造一个收费系统。 他的业务是这样的，主要的为饮品收费，其他的收费">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-02-05T03:57:38.000Z">
-<meta property="article:modified_time" content="2021-02-05T03:58:20.542Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210223120415.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210223141828.png">
+<meta property="article:published_time" content="2021-02-23T06:56:55.000Z">
+<meta property="article:modified_time" content="2021-02-23T06:57:40.375Z">
 <meta property="article:author" content="sui">
-<meta property="article:tag" content="format">
+<meta property="article:tag" content="装饰者模式">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210223120415.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
-    <title>linux指令-cut · Sui</title>
+    <title>设计模式-装饰者模式 · Sui</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -230,7 +233,7 @@
                 <a href="/" >Sui</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">linux指令-cut</a>
+                <a href="#" class="post-name">设计模式-装饰者模式</a>
             </div>
     </div>
     
@@ -260,7 +263,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            linux指令-cut
+            设计模式-装饰者模式
             <!-- 404 -->
             
         </h1>
@@ -279,18 +282,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "format">format</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "装饰者模式">装饰者模式</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">601</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.4k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2021/02/05</span>
+                    <span class="post-intro-time">2021/02/23</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -414,63 +417,60 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="linux指令-cut"><a href="#linux指令-cut" class="headerlink" title="linux指令-cut"></a>linux指令-cut</h1><p>linux中cut命令是常用的文本处理命令之一，通常用来截取字符，将字符切片处理，它的处理单元为一行，也就是一行一行的进行处理，最后得到我们想要的结果</p>
-<p><strong>命令格式：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cut OPTION... [FILE]...</span><br></pre></td></tr></table></figure>
-<p><strong>参数信息：</strong></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-d</td>
-<td>指定分割符号</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>选择字段</td>
-</tr>
-<tr>
-<td>-c</td>
-<td>以<strong>字符</strong>为单位取出固定的<strong>字符</strong>区间</td>
-</tr>
-<tr>
-<td>-b</td>
-<td>以<strong>字节</strong>为单位取出固定的<strong>字节</strong>区间</td>
-</tr>
-<tr>
-<td>–complement</td>
-<td>反选我们的设定</td>
-</tr>
-</tbody></table>
-<p><strong>演示：</strong></p>
-<p>指定分割符号，并且执行显示的段</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-14-centos <span class="built_in">test</span>]<span class="comment"># cat /etc/passwd | cut -d&quot;:&quot; -f1 | head -n 5</span></span><br><span class="line">root</span><br><span class="line">bin</span><br><span class="line">daemon</span><br><span class="line">adm</span><br><span class="line">lp</span><br></pre></td></tr></table></figure>
-<p><code>-f</code>后指定的选择为现实的段（即以分隔符分割的段），<code>-f1,5</code>为显示第一和第五段，<code>-f1-5</code>为显示第一到第五段</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-14-centos <span class="built_in">test</span>]<span class="comment"># cat /etc/passwd | cut -d&quot;:&quot; -f1,5 | head -n 5</span></span><br><span class="line">root:root</span><br><span class="line">bin:bin</span><br><span class="line">daemon:daemon</span><br><span class="line">adm:adm</span><br><span class="line">lp:lp</span><br><span class="line">[root@VM-8-14-centos <span class="built_in">test</span>]<span class="comment"># cat /etc/passwd | cut -d&quot;:&quot; -f1-5 | head -n 5</span></span><br><span class="line">root:x:0:0:root</span><br><span class="line">bin:x:1:1:bin</span><br><span class="line">daemon:x:2:2:daemon</span><br><span class="line">adm:x:3:4:adm</span><br><span class="line">lp:x:4:7:lp</span><br></pre></td></tr></table></figure>
-<p>指定显示的字符以及字节范围</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-14-centos <span class="built_in">test</span>]<span class="comment"># cat /etc/passwd | cut  -c1-5 | head -n 5</span></span><br><span class="line">root:</span><br><span class="line">bin:x</span><br><span class="line">daemo</span><br><span class="line">adm:x</span><br><span class="line">lp:x:</span><br><span class="line">[root@VM-8-14-centos <span class="built_in">test</span>]<span class="comment"># cat /etc/passwd | cut  -b1-5 | head -n 5</span></span><br><span class="line">root:</span><br><span class="line">bin:x</span><br><span class="line">daemo</span><br><span class="line">adm:x</span><br><span class="line">lp:x:</span><br></pre></td></tr></table></figure>
-<p>可以看出两者没有区别，由于英文采用的是ASCII编码，一个字节代表了一个字符，用另一文件进行举例就明白了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-14-centos <span class="built_in">test</span>]<span class="comment"># cat cut_test</span></span><br><span class="line">我是一个测试文件</span><br><span class="line">[root@VM-8-14-centos <span class="built_in">test</span>]<span class="comment"># cat cut_test | cut -c1-5</span></span><br><span class="line">我是一个测</span><br><span class="line">[root@VM-8-14-centos <span class="built_in">test</span>]<span class="comment"># cat cut_test | cut -b1-5</span></span><br><span class="line">我�</span><br></pre></td></tr></table></figure>
-<p>最后这个指定字节的乱码了，原因是中文采用的是<code>utf-8</code>编码，第一到第三个字节为“我”，而第三个到第六个字节才是“是”，但是我们只去了1-5，因此乱码了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-14-centos <span class="built_in">test</span>]<span class="comment"># cat cut_test | cut -b1-6</span></span><br><span class="line">我是</span><br></pre></td></tr></table></figure>
-<p>输出前5个字节</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-14-centos <span class="built_in">test</span>]<span class="comment"># cat /etc/passwd | cut  -b-5 | head -n 5</span></span><br><span class="line">root:</span><br><span class="line">bin:x</span><br><span class="line">daemo</span><br><span class="line">adm:x</span><br><span class="line">lp:x:</span><br></pre></td></tr></table></figure>
-<p>输出第五个字节之后的内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-14-centos <span class="built_in">test</span>]<span class="comment"># cat /etc/passwd | cut  -b5- | head -n 5</span></span><br><span class="line">:x:0:0:root:/root:/bin/bash</span><br><span class="line">x:1:1:bin:/bin:/sbin/nologin</span><br><span class="line">on:x:2:2:daemon:/sbin:/sbin/nologin</span><br><span class="line">x:3:4:adm:/var/adm:/sbin/nologin</span><br><span class="line">:4:7:lp:/var/spool/lpd:/sbin/nologin</span><br></pre></td></tr></table></figure>
-<p>关于<code>--complement</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-14-centos <span class="built_in">test</span>]<span class="comment"># cat cut_test | cut -b1-6 --complement</span></span><br><span class="line">一个测试文件</span><br></pre></td></tr></table></figure>
+        <h1 id="设计模式-装饰者模式"><a href="#设计模式-装饰者模式" class="headerlink" title="设计模式-装饰者模式"></a>设计模式-装饰者模式</h1><p>在<code>JDK</code>中，使用到了很多设计模式，例如装饰者模式、观察者模式，它广泛存在于<code>Java I/O</code>中，说实话，刚学习<code>Java I/O</code>时有点懵，他的类是在太多了，可供选择的就十多种，还有很多叫不上名字的IO类，当时一度怀疑自己不是学编程的选手。</p>
+<p>今天重点所说的就是装饰者模式，也算是一个总结吧</p>
+<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>这个场景很简单，为某冷饮店制造一个收费系统。</p>
+<p>他的业务是这样的，主要的为饮品收费，其他的收费项目为配料收费，例如在点了饮品的基础上增加了珍珠、椰果等配料，然后计算总的费用。</p>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>大家的想法可能是这样：当购买哪一种类的饮料时，就创建出来这个对象，如果想另外增加配料，再创建出来配料类的对象，最后计算出价格。但是怎么实现呢，要讲弹性，以方便日后的扩展</p>
+<p>最初可以设计出一个抽象类，将饮料抽象出来</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Beverage</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDescription</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;unknown beverage&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">float</span> <span class="title">cost</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来就是围绕这个类展开，从而引出装饰者模式。在往下进行之前，先说一个设计原则：</p>
+<p><strong>对修改关闭，对扩展开放（开放封闭原则）</strong></p>
+<p>新创建的饮料可以完全继承自<code>Beverage</code>类，并且实现其中的<code>cost()</code>和覆盖<code>getDescription()</code>，我们创建两个饮料类拿铁（Latte）和卡布奇诺（Cappuccino）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Latte</span> <span class="keyword">extends</span> <span class="title">Beverage</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">cost</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">12.1f</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDescription</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Latte&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cappuccino</span> <span class="keyword">extends</span> <span class="title">Beverage</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">cost</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">7.21f</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDescription</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Cappuccino&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在装饰者模式中，这两类被称为<strong>被装饰者</strong>，而这个场景中，真正的装饰者是调料，我们看一下调料的抽象类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Flavour</span> <span class="keyword">extends</span> <span class="title">Beverage</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDescription</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Flavour&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外再去实现两种调料珍珠（Pearl）、椰肉（Coconut）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pearl</span> <span class="keyword">extends</span> <span class="title">Flavour</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Beverage beverage;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Pearl</span><span class="params">(Beverage beverage)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.beverage = beverage;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">cost</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> beverage.cost() + <span class="number">2.1f</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDescription</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> beverage.getDescription() + <span class="string">&quot; Pearl&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Coconut</span> <span class="keyword">extends</span> <span class="title">Flavour</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Beverage beverage;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Coconut</span><span class="params">(Beverage beverage)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.beverage = beverage;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">cost</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> beverage.cost() + <span class="number">4.2f</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDescription</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> beverage.getDescription() + <span class="string">&quot; Coconut&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>目前我们就完成了所有所需的类，<code>UML</code>类图如下</p>
+<p><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210223120415.png"></p>
+<p>其中<code>Pearl</code>与<code>Coconut</code>装饰者类，负责装饰<code>Latte</code>与<code>Cappuccino</code>，且装饰者与被装饰者应该有相同的类型，即<code>Beverage</code></p>
+<p>如果我想点一份Latte，并且加上Pearl配料，应该如何计算金钱呢</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Consumption</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Latte latte = <span class="keyword">new</span> Latte();</span><br><span class="line"></span><br><span class="line">        Pearl pearl = <span class="keyword">new</span> Pearl(latte);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;total cost: &quot;</span> + pearl.cost());</span><br><span class="line">        System.out.println(pearl.getDescription());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后打印出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">total cost: 14.200001</span><br><span class="line">Latte Pearl</span><br></pre></td></tr></table></figure>
+<p>这样的扩展是否很灵活呢，通过装饰者对被装饰者的装饰，在不修改原有代码的前提下，完成了如此具有弹性的功能。</p>
+<p>此时我想点一份Cappuccino加两份Coconut</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Consumption</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Cappuccino cappuccino = <span class="keyword">new</span> Cappuccino();</span><br><span class="line"></span><br><span class="line">        Coconut coconut = <span class="keyword">new</span> Coconut(cappuccino);</span><br><span class="line">        coconut = <span class="keyword">new</span> Coconut(coconut);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;total cost: &quot;</span> + coconut.cost());</span><br><span class="line">        System.out.println(coconut.getDescription());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">total cost: 15.61</span><br><span class="line">Cappuccino Coconut Coconut</span><br></pre></td></tr></table></figure>
+<h2 id="I-O类中的装饰者模式"><a href="#I-O类中的装饰者模式" class="headerlink" title="I/O类中的装饰者模式"></a>I/O类中的装饰者模式</h2><p><img src="https://raw.githubusercontent.com/lightingsui/Pic/master/img/20210223141828.png"></p>
+<p>以输入流举例（输出流也是同理），<code>InputStream</code>可以看成是抽象的组件，<code>FilterInputStream</code>可以看成是抽象装饰者，而她下面的类就可以看成是具体的装饰者，他们都是对以及<code>InputStream</code>的装饰</p>
+<p>既然说的这么细了，那就进到<code>FilterInputStream</code>的源码中看一看</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FilterInputStream</span> <span class="keyword">extends</span> <span class="title">InputStream</span> </span>&#123;</span><br><span class="line">   	<span class="comment">// 被装饰的对象</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">volatile</span> InputStream in;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">FilterInputStream</span><span class="params">(InputStream in)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.in = in;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">// 调用被装饰的对象方法</span></span><br><span class="line">        <span class="keyword">return</span> in.read();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 部分省略</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>他和咱们上面饮品的例子结构差不多吧</p>
+<p><code>Java I/O</code>也引出来了装饰者模式的一个缺点，利用装饰者模式，常常造成设计中有大量的小类，数量实在太多，可能会给使用此<code>API</code>的程序员造成困扰。</p>
+<p>我们在知道了<code>Java I/O</code>类的原理后，可以自己动手写一个<code>Java I/O</code>类的<code>API</code>，功能是将文件中的全部大写转换为小写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LowerFileInputStream</span> <span class="keyword">extends</span> <span class="title">FileInputStream</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> FileInputStream fileInputStream;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> read = <span class="keyword">super</span>.read();</span><br><span class="line">        <span class="keyword">return</span> read == -<span class="number">1</span> ? read : Character.toLowerCase((<span class="keyword">char</span>)read);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">byte</span>[] b)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> read = <span class="keyword">super</span>.read(b);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; read; i++) &#123;</span><br><span class="line">            b[i] = (<span class="keyword">byte</span>) Character.toLowerCase((<span class="keyword">char</span>) b[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> read;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LowerFileInputStream</span><span class="params">(String name)</span> <span class="keyword">throws</span> FileNotFoundException </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(name);</span><br><span class="line">        fileInputStream = <span class="keyword">new</span> FileInputStream(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    LowerFileInputStream lowerFileInputStream = <span class="keyword">new</span> LowerFileInputStream(<span class="string">&quot;lower.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> read = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>((read = lowerFileInputStream.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">        stringBuilder.append((<span class="keyword">char</span>)read);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    lowerFileInputStream.close();</span><br><span class="line"></span><br><span class="line">    System.out.println(stringBuilder.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 原始文件内容</span><br><span class="line">I am Programmer</span><br><span class="line"></span><br><span class="line"># 输出内容</span><br><span class="line">i am programmer</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本篇文章以某饮料公司的消费系统为场景，引出了装饰者模式，并且得到了一个重要的设计原则：</p>
+<p><strong>类只对扩展开放，对修改关闭（开放封闭原则）</strong></p>
+<p>还总结出Java IO中存在着大部分的装饰者模式，同时也指出了装饰者模式的不足之处。</p>
+<p>最后自己动手实现了一个依靠装饰者模式自定义的IO类。</p>
+
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://example.com">sui</a>
-            <p>原文链接：<a href="http://example.com/2021/02/05/linux%E6%8C%87%E4%BB%A4-cut/">http://example.com/2021/02/05/linux%E6%8C%87%E4%BB%A4-cut/</a>
-            <p>发表日期：<a href="http://example.com/2021/02/05/linux%E6%8C%87%E4%BB%A4-cut/">February 5th 2021, 11:57:38 am</a>
-            <p>更新日期：<a href="http://example.com/2021/02/05/linux%E6%8C%87%E4%BB%A4-cut/">February 5th 2021, 11:58:20 am</a>
+            <p>原文链接：<a href="http://example.com/2021/02/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">http://example.com/2021/02/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</a>
+            <p>发表日期：<a href="http://example.com/2021/02/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">February 23rd 2021, 2:56:55 pm</a>
+            <p>更新日期：<a href="http://example.com/2021/02/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">February 23rd 2021, 2:57:40 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -478,17 +478,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2021/02/05/linux%E6%8C%87%E4%BB%A4-ls/" title= "linux指令-ls">
-                    <div class="nextTitle">linux指令-ls</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2021/02/03/Vim%E8%AE%BE%E7%BD%AEtab%E7%BC%A9%E8%BF%9B%E7%9A%84%E6%95%B0%E9%87%8F/" title= "Vim设置tab缩进的数量">
-                    <div class="prevTitle">Vim设置tab缩进的数量</div>
+                <a href= "/2021/02/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" title= "设计模式-策略模式">
+                    <div class="prevTitle">设计模式-策略模式</div>
                 </a>
             
         </li>
@@ -611,7 +606,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux%E6%8C%87%E4%BB%A4-cut"><span class="toc-number">1.</span> <span class="toc-text">linux指令-cut</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">设计模式-装饰者模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF"><span class="toc-number">1.1.</span> <span class="toc-text">场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="toc-number">1.2.</span> <span class="toc-text">问题解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O%E7%B1%BB%E4%B8%AD%E7%9A%84%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">I&#x2F;O类中的装饰者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
