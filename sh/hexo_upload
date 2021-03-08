@@ -29,7 +29,7 @@ echo "Write successfully"
 # upload new to github
 hexo g
 
-if [ ${witt_parameter} == true ]
+if [[ $with_parameter == true ]]
 then
 	# run expect script
 	/opt/blog/sh/upload
